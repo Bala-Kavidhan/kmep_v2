@@ -240,9 +240,19 @@
         height: 6px;
         border-radius: 50%;
         background: #e4e0d8;
+        cursor: pointer;
+        position: relative;
         transition:
           background 0.3s,
           width 0.3s;
+      }
+      .ks-dots i::after {
+        content: "";
+        position: absolute;
+        inset: -8px -3px;
+      }
+      .ks-dots i:hover {
+        background: #b57edc;
       }
       .ks-dots i.active {
         background: #7b2d9b;
@@ -2004,7 +2014,14 @@
             m.classList.toggle("active", k === i);
           });
         }
+        var resumeAt = 0;
         show(0);
+        dots.forEach(function (d, k) {
+          d.addEventListener("click", function () {
+            show(k);
+            resumeAt = Date.now() + 6000;
+          });
+        });
         card.addEventListener("mouseenter", function () {
           paused = true;
         });
@@ -2012,7 +2029,12 @@
           paused = false;
         });
         setInterval(function () {
-          if (!paused && !card.classList.contains("open")) show(i + 1);
+          if (
+            !paused &&
+            !card.classList.contains("open") &&
+            Date.now() >= resumeAt
+          )
+            show(i + 1);
         }, 3000);
       });
 
