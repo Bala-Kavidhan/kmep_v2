@@ -53,7 +53,7 @@
       .ka-hero {
         background: linear-gradient(135deg, #2a1038 0%, #3a1655 100%);
         color: #fff;
-        padding: 80px 0 72px;
+        padding: 56px 0 48px;
         text-align: center;
       }
       .ka-hero .k-eyebrow {
@@ -158,13 +158,14 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 24px;
+        align-items: start;
       }
       .ka-mv-card {
         background: #fff;
         border: 1px solid #e4e0d8;
         border-top: 4px solid #7b2d9b;
         border-radius: 14px;
-        padding: 36px 34px;
+        padding: 28px 30px;
         box-shadow: 0 16px 40px rgba(42, 16, 56, 0.06);
       }
       .ka-mv-head {
@@ -189,6 +190,22 @@
         line-height: 1.85;
         margin: 0;
         font-size: 15.5px;
+      }
+
+      #story,
+      #mission,
+      #values {
+        padding-top: 56px;
+        padding-bottom: 56px;
+      }
+      #mission .k-head,
+      #values .k-head {
+        max-width: 860px;
+        margin-bottom: 32px;
+      }
+      #mission .k-lead,
+      #values .k-lead {
+        font-size: 16px;
       }
 
       @media (max-width: 1000px) {
@@ -243,7 +260,7 @@
             <div>
               <span class="k-eyebrow">Our presence</span>
               <h2 class="k-h2">
-                Rooted in Chennai. Trusted beyond boundaries.
+                Rooted in Chennai.<br />Trusted beyond boundaries.
               </h2>
               <p>
                 Founded in Chennai, Keerthan MEP Engineers has grown through a
@@ -339,6 +356,10 @@
                 partners—recognised for technical excellence, responsible
                 innovation, and high-performance solutions that create lasting
                 value for clients and the built environment.
+              </p>
+              <p style="margin-top: 14px">
+                Our goal is simple: engineering that performs on day one and
+                keeps performing for decades.
               </p>
             </div>
             <div class="ka-mv-card">

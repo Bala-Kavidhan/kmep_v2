@@ -46,7 +46,6 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="kmep-home.css" />
-    <link rel="stylesheet" href="kmep-pages.css" />
     <script src="kmep-layout.js" defer></script>
 
     <style>
@@ -54,7 +53,7 @@
       .kl-hero {
         background: linear-gradient(135deg, #2a1038 0%, #3a1655 100%);
         color: #fff;
-        padding: 80px 0 72px;
+        padding: 56px 0 48px;
         text-align: center;
       }
       .kl-hero .k-eyebrow {
@@ -82,8 +81,8 @@
       /* ── PROFILE ── */
       .kl-profile {
         display: grid;
-        grid-template-columns: 320px 1fr;
-        gap: 40px;
+        grid-template-columns: 300px 1fr;
+        gap: 32px;
         align-items: start;
       }
       .kl-side {
@@ -91,7 +90,7 @@
         border: 1px solid #e4e0d8;
         border-top: 4px solid #7b2d9b;
         border-radius: 14px;
-        padding: 36px 26px;
+        padding: 28px 22px;
         text-align: center;
         box-shadow: 0 16px 40px rgba(42, 16, 56, 0.08);
         position: sticky;
@@ -223,6 +222,21 @@
         color: #7b2d9b;
       }
 
+      #leadership,
+      #ld-values {
+        padding-top: 56px;
+        padding-bottom: 56px;
+      }
+      #leadership .k-head,
+      #ld-values .k-head {
+        max-width: 860px;
+        margin-bottom: 32px;
+      }
+      #leadership .k-lead,
+      #ld-values .k-lead {
+        font-size: 16px;
+      }
+
       @media (max-width: 1000px) {
         .kl-profile {
           grid-template-columns: 1fr;
@@ -302,7 +316,6 @@
             </aside>
 
             <div class="kl-main">
-              <h3 class="kl-h">Rajesh Subburaj</h3>
               <div class="kl-exp">
                 <b>26+</b><span>Years of industry experience</span>
               </div>
