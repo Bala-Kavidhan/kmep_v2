@@ -1,0 +1,64 @@
+/* Typography normaliser. Load AFTER kmep-home.css on every page. */
+body {
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4a4452;
+}
+
+/* no justify anywhere, left-aligned by default */
+main p, main li, main span, main div {
+  text-align: left;
+  text-justify: auto;
+  hyphens: none;
+  word-spacing: normal;
+}
+
+/* headings: one family, one scale */
+main h1, main h2, main h3, main h4 {
+  font-family: "Outfit", sans-serif;
+  text-transform: none;
+  font-style: normal;
+  color: #2a1038;
+}
+main h2 { font-size: clamp(26px, 3.2vw, 38px); line-height: 1.2; letter-spacing: -.02em; font-weight: 700; }
+main h3 { font-size: 20px; line-height: 1.3; font-weight: 700; }
+main h4 { font-size: 15px; line-height: 1.4; font-weight: 700; }
+
+/* body copy */
+main p { font-size: 16px; line-height: 1.8; }
+main li { font-size: 15px; line-height: 1.6; }
+
+/* section heads are centred, same as the home page */
+.k-head { text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; }
+.k-head * { text-align: center; }
+.k-head .k-lead { margin-left: auto; margin-right: auto; max-width: 680px; font-size: 17px; }
+
+/* dark hero + CTA text keeps its own colours and centring */
+.ka-hero, .kl-hero, .kt-hero, .kd-hero, .kr-hero, .ks-hero, .kc-hero,
+.ka-hero *, .kl-hero *, .kt-hero *, .kd-hero *, .kr-hero *, .ks-hero *, .kc-hero * { text-align: center; }
+.ka-hero h1, .kl-hero h1, .kt-hero h1, .kd-hero h1, .kr-hero h1, .ks-hero h1, .kc-hero h1 {
+  color: #fff; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.15; letter-spacing: -.02em;
+}
+.ka-hero h1 span, .kl-hero h1 span, .kt-hero h1 span, .kd-hero h1 span, .kr-hero h1 span, .ks-hero h1 span { color: #e3b8f5; }
+.ka-hero p, .kl-hero p, .kt-hero p, .kd-hero p, .kr-hero p, .ks-hero p, .kc-hero p { color: #d9c6e6; font-size: 16px; }
+.k-cta h2 { color: #fff; }
+.k-cta p { color: #e3d3ee; }
+.k-cta, .k-cta * { text-align: left; }
+.k-cta .k-cta-btns, .k-cta .k-cta-btns * { text-align: center; }
+
+/* card text */
+.kt-card h3, .kd-head h3, .ks-ttl h2, .ka-mv-head h3, .kr-role h4, .kl-side h2 { color: #2a1038; }
+.kl-side, .kl-side *, .kr-role, .kr-role *, .kl-avatar { text-align: center; }
+.kl-badges, .kl-badges * { text-align: left; }
+.kt-one, .kt-one * { text-align: center; }
+.kd-intro, .ks-intro { text-align: center; font-size: 17px; }
+.kc-or { text-align: center; }
+.kc-note { text-align: center; }
+
+/* mobile */
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  main p { font-size: 15px; }
+  main h2 { font-size: 24px; }
+}

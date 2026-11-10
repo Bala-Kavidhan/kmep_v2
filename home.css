@@ -1,0 +1,94 @@
+/* ═══ KMEP HOME — clean corporate layout ═══ */
+
+/* one spacing rhythm, alternating white / soft grey */
+#about, #services, #work, #why, #spotlight, #clients { padding: 96px 0; }
+#work { padding-bottom: 72px; }
+#about, #work, #spotlight { background: #fff; }
+#services, #why, #clients { background: var(--off); }
+#spotlight { border-bottom: none; }
+.sec-header { margin-bottom: 56px; }
+.display-h { font-weight: 700; }
+.display-h, .about-h, .spot-h { letter-spacing: -0.5px !important; }
+.sec-sub { max-width: 620px; }
+
+/* ── HERO: full-width photo, dark overlay, white text ── */
+#hero { background: #1a0a24; min-height: 100vh; padding-bottom: 150px; }
+.hbg-glow { display: none; }
+.hbg-photo { width: 100%; clip-path: none; }
+.hbg-photo::before {
+  background: linear-gradient(90deg, rgba(26,10,36,.94) 0%, rgba(26,10,36,.78) 45%, rgba(26,10,36,.35) 100%);
+}
+.hbg-photo::after {
+  background: linear-gradient(180deg, transparent 55%, rgba(26,10,36,.7) 100%);
+}
+.hero-cue, .sidenav { display: none; }
+
+/* align hero text with logo and the rest of the page */
+.hero-body { max-width: none; margin: 0; padding: 0 clamp(14px, 5vw, 64px); }
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 12px; margin-bottom: 22px;
+  font-size: 12px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: #d9a8ee;
+}
+.hero-kicker::before { content: ""; width: 32px; height: 2px; background: #a352c4; }
+.hero-h1 {
+  color: #fff; font-weight: 700; font-size: clamp(34px, 5.6vw, 80px);
+  line-height: 1.06; letter-spacing: -1.5px; max-width: 900px; margin-bottom: 24px;
+}
+.hero-h1 span { color: #e3b8f2; }
+.hero-sub { color: rgba(255,255,255,.78); font-size: 17px; max-width: 580px; line-height: 1.75; margin-bottom: 40px; }
+.hero-sub b { display: block; color: #fff; font-size: 20px !important; font-weight: 600; margin-bottom: 10px; }
+
+.hero-btns .btn-sky { background: #8e3aa8; color: #fff; }
+.hero-btns .btn-sky:hover { background: #a352c4; box-shadow: 0 12px 32px rgba(0,0,0,.3); }
+.hero-btns .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,.5); color: #fff; }
+.hero-btns .btn-outline:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+
+/* stat strip pinned to the bottom of the hero */
+.hero-bar {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  background: rgba(26,10,36,.55); backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+.hero-bar-in {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  padding: 24px clamp(14px, 5vw, 64px);
+}
+.hero-bar b { display: block; font-size: 28px; font-weight: 700; color: #fff; line-height: 1; }
+.hero-bar span {
+  display: block; margin-top: 6px; font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.65);
+}
+
+/* ── ABOUT: lighter, no card boxes, no duplicate services box ── */
+.pillar { border: none; background: none; padding: 0; border-radius: 0; }
+.pillar:hover { transform: none; box-shadow: none; background: none; border-color: transparent; }
+.pillar p { display: none; }
+.pillar-list { gap: 22px; }
+.svc-mini { display: none; }
+.about-img::before { display: none; }
+
+/* ── SERVICES ── */
+.svc-top { display: none; }
+.svc-card { border: 1px solid var(--border); border-radius: 12px; box-shadow: none; }
+.svc-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(42,17,53,.10); }
+.svc-thumb { background: #f1eff5; }
+
+/* ── WHY ── */
+.wc-num { display: none; }
+.why-grid { border: 1px solid var(--border); box-shadow: none; border-radius: 16px; }
+.wc:hover { transform: none; background: var(--off); }
+
+/* ── CLIENTS: muted logos, colour on hover ── */
+.mq-track img { filter: grayscale(1); opacity: .7; transition: filter .3s, opacity .3s, transform .3s; }
+.mq-track a:hover img { filter: none; opacity: 1; }
+
+/* ── MOBILE ── */
+@media (max-width: 860px) {
+  #about, #services, #work, #why, #spotlight, #clients { padding: 64px 0; }
+  #work { padding-bottom: 48px; }
+  .hbg-photo { display: block; }
+  #hero { padding-bottom: 210px; }
+  .hero-bar-in { grid-template-columns: repeat(2, 1fr); gap: 16px; padding-top: 18px; padding-bottom: 18px; }
+  .hero-bar b { font-size: 22px; }
+}

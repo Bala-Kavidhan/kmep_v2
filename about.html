@@ -37,7 +37,7 @@
     <link rel="canonical" href="https://kavidhan.com/about-us.html" />
     <link rel="icon" href="IMAGES/logo.png" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -45,964 +45,422 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="kmep-home.css" />
+    <script src="kmep-layout.js" defer></script>
+
     <style>
-      /* ══════════════════════════════════════════
-       HIDE SCROLLBAR
-    ══════════════════════════════════════════ */
-      ::-webkit-scrollbar {
-        display: none;
+      /* ── PAGE HERO ── */
+      .ka-hero {
+        background: linear-gradient(135deg, #2a1038 0%, #3a1655 100%);
+        color: #fff;
+        padding: 80px 0 72px;
+        text-align: center;
       }
-      html {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+      .ka-hero .k-eyebrow {
+        color: #e3b8f5;
       }
-      body {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-
-      .page-hero {
-        min-height: clamp(340px, 40vh, 520px);
-        padding-bottom: 56px;
-        align-items: flex-end;
-        overflow: hidden;
-        background: var(--off);
-        border-bottom: 1px solid var(--border);
-      }
-      .ph-grid {
-        display: none;
-      }
-      .ph-glow {
-        background:
-          radial-gradient(
-            circle 260px at 85% 20%,
-            rgba(14, 165, 233, 0.08) 0%,
-            transparent 70%
-          ),
-          radial-gradient(
-            circle 220px at 10% 85%,
-            rgba(21, 88, 176, 0.06) 0%,
-            transparent 70%
-          );
-      }
-      .ph-eyebrow {
-        background: #fff;
-        border-color: var(--border);
-        color: var(--slate);
-        box-shadow: var(--sh);
-      }
-      .ph-h1 {
-        color: var(--navy);
-      }
-      .ph-sub {
-        color: #4a5568;
-      }
-      .ph-line2 {
-        font-family: "Outfit", sans-serif;
-        font-weight: 800;
-        font-size: clamp(24px, 3.4vw, 44px);
-        line-height: 1.15;
+      .ka-hero h1 {
+        font-size: clamp(32px, 4.4vw, 52px);
+        font-weight: 700;
         letter-spacing: -1px;
-        background: linear-gradient(90deg, var(--blue), var(--sky));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: clamp(14px, 2vw, 24px);
+        line-height: 1.15;
+        margin: 10px 0 8px;
+      }
+      .ka-hero h1 span {
+        display: block;
+        color: #e3b8f5;
+      }
+      .ka-hero p {
+        max-width: 720px;
+        margin: 14px auto 0;
+        color: #d9c6e6;
+        line-height: 1.75;
+        font-size: 16px;
       }
 
-      @media (max-width: 860px) {
-        .page-hero {
-          min-height: clamp(320px, 42vh, 460px);
-        }
-      }
-      @media (max-width: 600px) {
-        .page-hero {
-          min-height: clamp(300px, 40vh, 420px);
-        }
-      }
-      @media (max-width: 480px) {
-        .page-hero {
-          min-height: clamp(280px, 38vh, 380px);
-        }
-      }
-
-      #story {
-        padding: 108px 0 64px;
-        background: #fff;
-      }
-      .story-grid {
+      /* ── STORY ── */
+      .ka-story {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 84px;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 56px;
         align-items: start;
       }
-      .story-h {
-        font-family: "Outfit", sans-serif;
-        font-size: clamp(30px, 4vw, 50px);
-        font-weight: 800;
-        letter-spacing: -1.5px;
-        color: var(--navy);
-        line-height: 1.1;
-        margin-bottom: 24px;
-      }
-      .story-h span {
-        color: var(--blue2);
-      }
-      .story-p {
-        font-size: 16px;
-        color: var(--slate);
+      .ka-story p {
+        color: #4a4452;
         line-height: 1.85;
-        margin-bottom: 22px;
+        margin: 0 0 18px;
       }
-      .pillar-list {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        margin-top: 32px;
+      .ka-pillars {
+        display: grid;
+        gap: 12px;
+        margin-top: 26px;
       }
-      .pillar {
+      .ka-pillar {
         display: flex;
         gap: 16px;
-        align-items: flex-start;
-        padding: 20px 22px;
-        border-radius: 13px;
-        border: 1.5px solid var(--border);
+        align-items: center;
+        padding: 16px 18px;
         background: #fff;
+        border: 1px solid #e4e0d8;
+        border-radius: 12px;
         transition:
-          border-color 0.3s,
-          box-shadow 0.3s,
-          background 0.3s,
-          transform 0.3s;
+          border-color 0.25s,
+          box-shadow 0.25s,
+          transform 0.25s;
       }
-      .pillar:hover {
-        border-color: rgba(21, 88, 176, 0.28);
-        box-shadow: 0 6px 28px rgba(21, 88, 176, 0.09);
-        background: var(--off);
-        transform: translateY(-3px);
+      .ka-pillar:hover {
+        border-color: #b57edc;
+        box-shadow: 0 10px 24px rgba(74, 20, 100, 0.12);
+        transform: translateY(-2px);
       }
-      .p-ico {
+      .ka-ico {
         width: 44px;
         height: 44px;
-        border-radius: 11px;
+        border-radius: 10px;
         flex-shrink: 0;
-        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
-        color: var(--blue);
+        background: #f1e4f8;
+        color: #7b2d9b;
+        font-size: 17px;
       }
-      .pillar h3.p-tag {
-        font-size: 18px;
-        letter-spacing: 0.3px;
-        color: var(--navy);
-        font-weight: 800;
-        margin-bottom: 6px;
+      .ka-pillar h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: #2a1038;
+        margin: 0 0 3px;
       }
-      .pillar p {
-        font-size: 15.5px;
-        color: var(--slate);
-        line-height: 1.8;
+      .ka-pillar p {
+        margin: 0;
+        font-size: 14px;
+        color: #6b6475;
+        line-height: 1.6;
       }
-      @media (max-width: 860px) {
-        .pillar {
-          padding: 16px 18px;
-        }
-      }
-      @media (max-width: 600px) {
-        .pillar-list {
-          gap: 10px;
-        }
-        .p-ico {
-          width: 38px;
-          height: 38px;
-          font-size: 15px;
-        }
-      }
-      @media (max-width: 480px) {
-        .pillar {
-          padding: 14px 16px;
-          gap: 12px;
-        }
-        .p-ico {
-          width: 34px;
-          height: 34px;
-          font-size: 13px;
-        }
-        .pillar h3.p-tag {
-          font-size: 15px;
-        }
-        .pillar p {
-          font-size: 13.5px;
-        }
-      }
-      @media (max-width: 360px) {
-        .pillar {
-          padding: 12px 14px;
-          gap: 10px;
-        }
-        .p-ico {
-          width: 30px;
-          height: 30px;
-          font-size: 12px;
-        }
-      }
-      .story-visual {
-        display: flex;
-        flex-direction: column;
-        gap: 22px;
-      }
-      .story-img {
-        width: 100%;
-        border-radius: 18px;
+      .ka-img {
+        border-radius: 14px;
         overflow: hidden;
-        box-shadow: var(--sh2);
+        border-top: 4px solid #7b2d9b;
+        box-shadow: 0 16px 40px rgba(42, 16, 56, 0.12);
         aspect-ratio: 4 / 3;
-        position: relative;
+        position: sticky;
+        top: 100px;
       }
-      .story-img::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        z-index: 1;
-        background: linear-gradient(
-          90deg,
-          var(--blue),
-          var(--sky),
-          var(--teal)
-        );
-      }
-      .story-img img {
+      .ka-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
       }
-      .story-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        background: var(--off2);
-        border: 1.5px solid var(--border);
-        border-radius: 14px;
-        overflow: hidden;
-      }
-      .ss-card {
-        padding: 22px 18px;
-        text-align: center;
-        border-right: 1px solid var(--border);
-        transition: background 0.3s;
-      }
-      .ss-card:last-child {
-        border-right: none;
-      }
-      .ss-card:hover {
-        background: #fff;
-      }
-      .ss-card strong {
-        display: block;
-        font-family: "Outfit", sans-serif;
-        font-size: 30px;
-        font-weight: 800;
-        color: var(--navy);
-        line-height: 1;
-        margin-bottom: 6px;
-      }
-      .ss-card span {
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 1.8px;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      #mission {
-        padding: 32px 0 32px;
-        background: var(--off);
-      }
-      .mv-grid {
+
+      /* ── VISION / MISSION ── */
+      .ka-mv {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 24px;
       }
-      .mv-card {
+      .ka-mv-card {
         background: #fff;
-        border-radius: 20px;
-        border: 1.5px solid var(--border);
-        padding: 48px 44px;
-        position: relative;
-        overflow: hidden;
-        transition:
-          border-color 0.3s,
-          transform 0.35s,
-          box-shadow 0.35s;
-      }
-      .mv-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, var(--blue), var(--sky));
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.4s;
-      }
-      .mv-card:hover {
-        border-color: rgba(21, 88, 176, 0.22);
-        transform: translateY(-6px);
-        box-shadow: 0 20px 56px rgba(12, 30, 53, 0.1);
-      }
-      .mv-card:hover::before {
-        transform: scaleX(1);
-      }
-      .mv-bg {
-        position: absolute;
-        bottom: -20px;
-        right: 10px;
-        font-family: "Outfit", sans-serif;
-        font-size: 140px;
-        font-weight: 800;
-        color: var(--off2);
-        line-height: 1;
-        pointer-events: none;
-        user-select: none;
-        transition: color 0.3s;
-      }
-      .mv-card:hover .mv-bg {
-        color: #dbeafe;
-      }
-      .mv-head {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        margin-bottom: 20px;
-      }
-      .mv-ico {
-        width: 60px;
-        height: 60px;
-        border-radius: 16px;
-        flex-shrink: 0;
-        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        color: var(--blue);
-      }
-      .mv-card h3 {
-        font-family: "Outfit", sans-serif;
-        font-size: 18px;
-        font-weight: 800;
-        color: var(--navy);
-        letter-spacing: -0.5px;
-      }
-      .mv-card p {
-        font-size: 15.5px;
-        color: var(--slate);
-        line-height: 1.8;
-        position: relative;
-        z-index: 1;
-        text-align: justify;
-        text-justify: inter-word;
-      }
-      #values {
-        padding: 32px 0 32px;
-        background: #fff;
-      }
-      #values .glass-card {
-        background: var(--off);
-        border-color: var(--border);
-      }
-      #values .glass-card:hover {
-        background: #fff;
-        border-color: rgba(21, 88, 176, 0.25);
-        box-shadow: 0 16px 48px rgba(12, 30, 53, 0.1);
-      }
-      #values .glass-card h4,
-      #values .glass-card p b {
-        color: var(--navy);
-      }
-      #values .glass-card p {
-        color: var(--slate);
-      }
-      #values .glass-ico {
-        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-        border-color: rgba(21, 88, 176, 0.2);
-        color: var(--blue);
-      }
-      .val-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-      }
-      #journey {
-        padding: 108px 0;
-        background: #fff;
-      }
-      .tl {
-        position: relative;
-        max-width: 760px;
-        margin: 0 auto;
-      }
-      .tl::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2px;
-        background: linear-gradient(
-          to bottom,
-          var(--sky),
-          var(--blue),
-          var(--teal)
-        );
-        border-radius: 2px;
-      }
-      .tl-item {
-        display: grid;
-        grid-template-columns: 1fr 48px 1fr;
-        align-items: start;
-        margin-bottom: 48px;
-        position: relative;
-      }
-      .tl-item:last-child {
-        margin-bottom: 0;
-      }
-      .tl-card {
-        background: var(--off2);
-        border: 1.5px solid var(--border);
+        border: 1px solid #e4e0d8;
+        border-top: 4px solid #7b2d9b;
         border-radius: 14px;
-        padding: 24px 26px;
-        transition:
-          border-color 0.3s,
-          box-shadow 0.3s,
-          background 0.3s;
+        padding: 36px 34px;
+        box-shadow: 0 16px 40px rgba(42, 16, 56, 0.06);
       }
-      .tl-card:hover {
-        border-color: rgba(21, 88, 176, 0.25);
-        box-shadow: 0 8px 28px rgba(21, 88, 176, 0.1);
-        background: #fff;
-      }
-      .tl-card h4 {
-        font-size: 15px;
-        font-weight: 800;
-        color: var(--navy);
-        margin-bottom: 7px;
-      }
-      .tl-card p {
-        font-size: 13.5px;
-        color: var(--slate);
-        line-height: 1.65;
-      }
-      .tl-right .tl-card {
-        text-align: right;
-      }
-      .tl-center {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 16px;
-        position: relative;
-        z-index: 1;
-      }
-      .tl-dot {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: #fff;
-        border: 2px solid var(--border);
+      .ka-mv-head {
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-size: 13px;
-        font-weight: 800;
-        color: var(--blue);
-        box-shadow: var(--sh);
-        transition:
-          border-color 0.3s,
-          background 0.3s,
-          color 0.3s;
+        gap: 16px;
+        margin-bottom: 16px;
       }
-      .tl-item:hover .tl-dot {
-        border-color: var(--blue);
-        background: var(--blue);
-        color: #fff;
+      .ka-mv-head .ka-ico {
+        width: 52px;
+        height: 52px;
+        font-size: 21px;
       }
-      .tl-left {
-        padding-right: 32px;
+      .ka-mv-head h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #2a1038;
+        margin: 0;
       }
-      .tl-right {
-        padding-left: 32px;
+      .ka-mv-card p {
+        color: #4a4452;
+        line-height: 1.85;
+        margin: 0;
+        font-size: 15.5px;
       }
-      .tl-item.flip .tl-left {
-        order: 3;
-        padding-right: 0;
-        padding-left: 32px;
-      }
-      .tl-item.flip .tl-center {
-        order: 2;
-      }
-      .tl-item.flip .tl-right {
-        order: 1;
-        padding-left: 0;
-        padding-right: 32px;
-      }
-      .tl-item.flip .tl-right .tl-card {
-        text-align: left;
-      }
-      @media (max-width: 1100px) {
-        .story-grid {
+
+      @media (max-width: 1000px) {
+        .ka-story {
           grid-template-columns: 1fr;
-          gap: 52px;
+          gap: 36px;
         }
-        .val-grid {
-          grid-template-columns: repeat(2, 1fr);
+        .ka-img {
+          position: static;
         }
       }
-      @media (max-width: 860px) {
-        #story,
-        #mission,
-        #values,
-        #journey {
-          padding: 76px 0;
-        }
-        .mv-grid {
+      @media (max-width: 800px) {
+        .ka-mv {
           grid-template-columns: 1fr;
-        }
-        .val-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .tl::before {
-          left: 24px;
-          transform: none;
-        }
-        .tl-item {
-          grid-template-columns: 48px 1fr;
-        }
-        .tl-item .tl-left {
-          display: none;
-        }
-        .tl-center {
-          order: 1;
-        }
-        .tl-right {
-          order: 2;
-          padding-left: 20px;
-          padding-right: 0;
-        }
-        .tl-item.flip .tl-left {
-          display: none;
-        }
-        .tl-item.flip .tl-center {
-          order: 1;
-        }
-        .tl-item.flip .tl-right {
-          order: 2;
-          padding-left: 20px;
-          padding-right: 0;
-          text-align: left;
-        }
-        .tl-item.flip .tl-right .tl-card {
-          text-align: left;
         }
       }
       @media (max-width: 600px) {
-        #story,
-        #mission,
-        #values,
-        #journey {
-          padding: 60px 0;
+        .ka-hero {
+          padding: 56px 0 48px;
         }
-      }
-      @media (max-width: 480px) {
-        #story,
-        #mission,
-        #values,
-        #journey {
-          padding: 48px 0;
-        }
-        .val-grid {
-          grid-template-columns: 1fr;
-        }
-        .story-stats {
-          grid-template-columns: repeat(3, 1fr);
+        .ka-mv-card {
+          padding: 26px 20px;
         }
       }
     </style>
   </head>
   <body>
     <kmep-header></kmep-header>
-    <noscript>
-      <header
-        style="
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 1000;
-          height: 60px;
-          background: #fff;
-          border-bottom: 1px solid #dde4ed;
-          display: flex;
-          align-items: center;
-          padding: 0 48px;
-          font-family: sans-serif;
-        "
-      >
-        <a
-          href="index.html"
-          style="
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-          "
-        >
-          <img src="IMAGES/logo.png" alt="KMEP Logo" style="height: 40px" />
-          <span style="color: #7b2d8e; font-weight: 700; letter-spacing: 2px"
-            >KEERTHAN<br /><small style="letter-spacing: 2px; font-weight: 500"
-              >MEP ENGINEERS</small
-            ></span
-          >
-        </a>
-        <nav style="margin-left: auto; display: flex; gap: 20px">
-          <a href="index.html" style="color: #5a6a7e; text-decoration: none"
-            >Home</a
-          >
-          <a href="about.html" style="color: #5a6a7e; text-decoration: none"
-            >Company</a
-          >
-          <a href="services.html" style="color: #5a6a7e; text-decoration: none"
-            >Services</a
-          >
-          <a
-            href="contact-us.html"
-            style="color: #5a6a7e; text-decoration: none"
-            >Contact Us</a
-          >
-        </nav>
-      </header>
-    </noscript>
 
-    <section class="page-hero">
-      <div class="ph-grid"></div>
-      <div class="ph-glow"></div>
-      <div class="ph-body">
-        <div class="ph-eyebrow">
-          <span class="ph-pulse"></span>Keerthan MEP Engineers — Our Story
+    <main>
+      <!-- HERO -->
+      <section class="ka-hero">
+        <div class="k-in">
+          <span class="k-eyebrow">Keerthan MEP Engineers — Our story</span>
+          <h1>
+            Built on expertise, driven by purpose.
+            <span>Creating lasting value.</span>
+          </h1>
+          <p>
+            Founded in Chennai, Keerthan MEP delivers integrated engineering
+            solutions defined by technical precision, responsible execution, and
+            dependable performance — creating efficient, future-ready
+            environments that support people, businesses, and infrastructure.
+          </p>
         </div>
-        <h1 class="ph-h1">Built on Expertise, Driven by Purpose.</h1>
-        <p class="ph-line2">Creating Lasting Value.</p>
-        <p class="ph-sub ph-sub-clamp">
-          Founded in Chennai, Keerthan MEP delivers integrated engineering
-          solutions defined by technical precision, responsible execution, and
-          dependable performance — creating efficient, future-ready environments
-          that support people, businesses, and infrastructure.
-        </p>
-        <!-- <div
-          style="
-            display: inline-flex;
-            align-items: center;
-            gap: 14px;
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            padding: 18px 28px;
-            margin-top: 40px;
-          "
-        >
-          <div
-            style="
-              width: 44px;
-              height: 44px;
-              border-radius: 11px;
-              background: rgba(14, 165, 233, 0.15);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 18px;
-              color: var(--sky);
-              flex-shrink: 0;
-            "
-          >
-            <i class="fas fa-calendar-alt"></i>
+      </section>
+
+      <!-- STORY -->
+      <section class="k-sec" id="story">
+        <div class="k-in">
+          <div class="ka-story">
+            <div>
+              <span class="k-eyebrow">Our presence</span>
+              <h2 class="k-h2">
+                Rooted in Chennai. Trusted beyond boundaries.
+              </h2>
+              <p>
+                Founded in Chennai, Keerthan MEP Engineers has grown through a
+                steadfast commitment to technical integrity, disciplined
+                execution, and long-term client relationships. We deliver
+                integrated MEP solutions that bring together engineering
+                expertise, dependable technology, and responsible project
+                delivery.
+              </p>
+              <p>
+                Our capabilities extend from design and equipment solutions to
+                installation, commissioning, and lifecycle support. Across every
+                engagement, we remain focused on understanding the client’s
+                requirements, taking ownership of every detail, and delivering
+                systems engineered for efficiency, reliability, and lasting
+                performance.
+              </p>
+
+              <div class="ka-pillars">
+                <div class="ka-pillar">
+                  <div class="ka-ico">
+                    <i class="fas fa-drafting-compass"></i>
+                  </div>
+                  <div>
+                    <h3>Equipment design</h3>
+                    <p>
+                      Design and engineering of specialised industrial
+                      equipment.
+                    </p>
+                  </div>
+                </div>
+                <div class="ka-pillar">
+                  <div class="ka-ico"><i class="fas fa-fan"></i></div>
+                  <div>
+                    <h3>HVAC &amp; public works</h3>
+                    <p>
+                      Execution and management of HVAC and public-works
+                      projects.
+                    </p>
+                  </div>
+                </div>
+                <div class="ka-pillar">
+                  <div class="ka-ico">
+                    <i class="fas fa-screwdriver-wrench"></i>
+                  </div>
+                  <div>
+                    <h3>Technology-led systems</h3>
+                    <p>
+                      Sourcing, installation, and servicing of technology-led
+                      systems.
+                    </p>
+                  </div>
+                </div>
+                <div class="ka-pillar">
+                  <div class="ka-ico"><i class="fas fa-globe"></i></div>
+                  <div>
+                    <h3>Global technologies</h3>
+                    <p>
+                      Integration of globally recognised engineering
+                      technologies.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ka-img">
+              <img src="IMAGES/bg.png" alt="KMEP engineering" />
+            </div>
           </div>
+        </div>
+      </section>
+
+      <!-- VISION & MISSION -->
+      <section class="k-sec is-grey" id="mission">
+        <div class="k-in">
+          <div class="k-head">
+            <span class="k-eyebrow">Purpose &amp; direction</span>
+            <h2 class="k-h2">Vision &amp; mission</h2>
+            <p class="k-lead">
+              The enduring principles that define our ambition, guide our
+              decisions, and shape the value we create.
+            </p>
+          </div>
+          <div class="ka-mv">
+            <div class="ka-mv-card">
+              <div class="ka-mv-head">
+                <div class="ka-ico"><i class="fas fa-compass"></i></div>
+                <h3>Our vision</h3>
+              </div>
+              <p>
+                To be among India’s most trusted MEP engineering
+                partners—recognised for technical excellence, responsible
+                innovation, and high-performance solutions that create lasting
+                value for clients and the built environment.
+              </p>
+            </div>
+            <div class="ka-mv-card">
+              <div class="ka-mv-head">
+                <div class="ka-ico"><i class="fas fa-bullseye"></i></div>
+                <h3>Our mission</h3>
+              </div>
+              <p>
+                To transform complex project requirements into reliable,
+                efficient, and future-ready MEP solutions through intelligent
+                design, engineering precision, disciplined execution, and
+                complete accountability. We are committed to embracing advanced
+                technology, upholding rigorous quality standards, supporting
+                sustainable development, and building enduring client
+                relationships founded on transparency, integrity, and dependable
+                service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VALUES -->
+      <section class="k-sec" id="values">
+        <div class="k-in">
+          <div class="k-head">
+            <span class="k-eyebrow">What defines us</span>
+            <h2 class="k-h2">Engineered into every project</h2>
+            <p class="k-lead">
+              Four enduring principles guide how we think, collaborate, deliver,
+              and build lasting relationships.
+            </p>
+          </div>
+          <div class="k-why">
+            <div>
+              <i class="fas fa-shield-halved"></i>
+              <h3>Integrity</h3>
+              <p>
+                We communicate openly, act responsibly, and honour our
+                commitments—creating confidence through every decision and every
+                stage of delivery.
+              </p>
+            </div>
+            <div>
+              <i class="fas fa-microscope"></i>
+              <h3>Precision</h3>
+              <p>
+                From engineering design to final commissioning, we apply
+                rigorous standards and disciplined quality controls to deliver
+                systems that perform as intended.
+              </p>
+            </div>
+            <div>
+              <i class="fas fa-leaf"></i>
+              <h3>Sustainability</h3>
+              <p>
+                We pursue energy-conscious, resource-efficient solutions that
+                balance present-day performance with long-term environmental and
+                operational value.
+              </p>
+            </div>
+            <div>
+              <i class="fas fa-handshake"></i>
+              <h3>Partnership</h3>
+              <p>
+                We listen carefully, work collaboratively, and take ownership of
+                outcomes—building enduring relationships supported by responsive
+                service and shared success.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="k-sec k-cta">
+        <div class="k-in">
           <div>
-            <strong
-              style="
-                display: block;
-                font-family: &quot;Playfair Display&quot;, serif;
-                font-size: 18px;
-                color: #fff;
-                font-weight: 800;
-              "
-              >Founded at 2022</strong
-            ><span
-              style="
-                font-size: 11px;
-                font-weight: 700;
-                letter-spacing: 1.5px;
-                text-transform: uppercase;
-                color: rgba(255, 255, 255, 0.38);
-              "
-              >Chennai, Tamil Nadu, India</span
-            >
-          </div>
-        </div> -->
-      </div>
-    </section>
-    <section id="story">
-      <div class="wrap">
-        <div class="story-grid">
-          <div class="rv-l">
-            <span class="sec-tag-c">Our Presence</span>
-            <h2 class="story-h">
-              Rooted in Chennai.
-              <br /><span>Trusted Beyond Boundaries.</span>
-            </h2>
-            <p class="story-p">
-              Founded in Chennai, Keerthan MEP Engineers has grown through a
-              steadfast commitment to technical integrity, disciplined
-              execution, and long-term client relationships. We deliver
-              integrated MEP solutions that bring together engineering
-              expertise, dependable technology, and responsible project
-              delivery.
+            <h2>Begin with the right engineering partner.</h2>
+            <p>
+              Bring your project requirements to a team committed to technical
+              clarity, accountable delivery, and lasting performance—from
+              initial consultation through commissioning and beyond.
             </p>
-
-            <p class="story-p">
-              Our capabilities extend from design and equipment solutions to
-              installation, commissioning, and lifecycle support. Across every
-              engagement, we remain focused on understanding the client’s
-              requirements, taking ownership of every detail, and delivering
-              systems engineered for efficiency, reliability, and lasting
-              performance.
-            </p>
-            <div class="pillar-list">
-              <div class="pillar">
-                <div class="p-ico"><i class="fas fa-drafting-compass"></i></div>
-                <div>
-                  <h3 class="p-tag">Equipment Design</h3>
-                  <p>
-                    Design and engineering of specialised industrial equipment.
-                  </p>
-                </div>
-              </div>
-              <div class="pillar">
-                <div class="p-ico"><i class="fas fa-fan"></i></div>
-                <div>
-                  <h3 class="p-tag">HVAC &amp; Public Works</h3>
-                  <p>
-                    Execution and management of HVAC and public-works projects.
-                  </p>
-                </div>
-              </div>
-              <div class="pillar">
-                <div class="p-ico">
-                  <i class="fas fa-screwdriver-wrench"></i>
-                </div>
-                <div>
-                  <h3 class="p-tag">Technology-Led Systems</h3>
-                  <p>
-                    Sourcing, installation, and servicing of technology-led
-                    systems.
-                  </p>
-                </div>
-              </div>
-              <div class="pillar">
-                <div class="p-ico"><i class="fas fa-globe"></i></div>
-                <div>
-                  <h3 class="p-tag">Global Technologies</h3>
-                  <p>
-                    Integration of globally recognised engineering technologies.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
-          <div class="story-visual rv-r">
-            <div class="story-img">
-              <img src="IMAGES/bg.png" alt="KMEP Engineering" />
-            </div>
-            <!-- <div class="story-stats">
-              <!-- <div class="ss-card">
-                <strong>4+</strong><span>Years Active</span>
-              </div> -->
-              <!-- <a
-                href="index.html#clients"
-                class="ss-card"
-                style="text-decoration: none; cursor: pointer"
-              >
-                <strong>25+</strong><span>Ongoing Projects Done</span>
-              </a>
-              <a
-                href="index.html#clients"
-                class="ss-card"
-                style="text-decoration: none; cursor: pointer"
-              >
-                <strong>18+</strong><span>Clients Served</span>
-              </a> -->
-              <!-- <a
-                href="contact-us.html"
-                class="ss-card"
-                style="text-decoration: none; cursor: pointer"
-              >
-                <strong>4</strong><span>City Offices</span>
-              </a> -->
-            <!-- </div> -->
+          <div class="k-cta-btns">
+            <a href="services.html" class="k-btn is-brand">Explore services</a>
+            <a href="contact-us.html" class="k-btn is-ghost">Contact us</a>
           </div>
         </div>
-      </div>
-    </section>
-    <section id="mission">
-      <div class="wrap">
-        <div class="sec-header rv">
-          <p class="sec-tag-c" style="margin-top: 0%">
-            <!-- move to the top of the session to avoid lot of empty space -->
-            Purpose &amp; Direction
-          </p>
-          <h2 class="display-h" style="font-size: clamp(30px, 4vw, 50px)">
-            Vision &amp; Mission
-          </h2>
-          <p class="sec-sub">
-            The enduring principles that define our ambition, guide our
-            decisions, and shape the value we create.
-          </p>
-        </div>
-        <div class="mv-grid">
-          <div class="mv-card rv d1">
-            <span class="mv-bg">V</span>
-            <div class="mv-head">
-              <div
-                class="mv-ico"
-                style="
-                  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-                  color: var(--teal);
-                "
-              >
-                <i class="fas fa-compass"></i>
-              </div>
-              <h3>Our Vision</h3>
-            </div>
-            <p>
-              To be among India’s most trusted MEP engineering
-              partners—recognised for technical excellence, responsible
-              innovation, and high-performance solutions that create lasting
-              value for clients and the built environment.
-            </p>
-          </div>
-          <div class="mv-card rv d2">
-            <span class="mv-bg">M</span>
-            <div class="mv-head">
-              <div class="mv-ico"><i class="fas fa-bullseye"></i></div>
-              <h3>Our Mission</h3>
-            </div>
-            <p>
-              To transform complex project requirements into reliable,
-              efficient, and future-ready MEP solutions through intelligent
-              design, engineering precision, disciplined execution, and complete
-              accountability. We are committed to embracing advanced technology,
-              upholding rigorous quality standards, supporting sustainable
-              development, and building enduring client relationships founded on
-              transparency, integrity, and dependable service.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="values">
-      <div class="wrap">
-        <div class="sec-header rv">
-          <p class="sec-tag-c">WHAT DEFINES US</p>
-          <h2
-            class="display-h"
-            style="font-size: clamp(30px, 4vw, 50px)"
-          >
-            Engineered into Every Project
-          </h2>
-          <p class="sec-sub">
-            Four enduring principles guide how we think, collaborate, deliver,
-            and build lasting relationships.
-          </p>
-        </div>
-        <div class="val-grid">
-          <div class="glass-card rv d1">
-            <div class="glass-ico-row">
-              <div class="glass-ico"><i class="fas fa-shield-alt"></i></div>
-              <h4>Integrity</h4>
-            </div>
-            <p>
-              <b>Trust Through Transparency</b><br />
-              We communicate openly, act responsibly, and honour our
-              commitments—creating confidence through every decision and every
-              stage of delivery.
-            </p>
-          </div>
-          <div class="glass-card rv d2">
-            <div class="glass-ico-row">
-              <div class="glass-ico"><i class="fas fa-microscope"></i></div>
-              <h4>Precision</h4>
-            </div>
-            <p>
-              <b> Excellence in Every Detail</b><br />
-              From engineering design to final commissioning, we apply rigorous
-              standards and disciplined quality controls to deliver systems that
-              perform as intended.
-            </p>
-          </div>
-          <div class="glass-card rv d3">
-            <div class="glass-ico-row">
-              <div class="glass-ico"><i class="fas fa-leaf"></i></div>
-              <h4>Sustainability</h4>
-            </div>
-            <p>
-              <b>Responsible by Design</b><br />
-              We pursue energy-conscious, resource-efficient solutions that
-              balance present-day performance with long-term environmental and
-              operational value.
-            </p>
-          </div>
-          <div class="glass-card rv d4">
-            <div class="glass-ico-row">
-              <div class="glass-ico"><i class="fas fa-handshake"></i></div>
-              <h4>Partnership</h4>
-            </div>
-            <p>
-              <b>Committed Beyond Completion</b><br />
-              We listen carefully, work collaboratively, and take ownership of
-              outcomes—building enduring relationships supported by responsive
-              service and shared success.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section style="padding: 42px 0; background: var(--off)">
-      <div class="wrap">
-        <div class="cta-box rv" style="padding: 32px 0">
-          <p class="cta-tag">PARTNER WITH KEERTHAN MEP</p>
-          <h2 class="display-h cta-h">
-            Begin with the Right Engineering Partner
-          </h2>
-          <p class="cta-p">
-            Bring your project requirements to a team committed to technical
-            clarity, accountable delivery, and lasting performance—from initial
-            consultation through commissioning and beyond.
-          </p>
-          <div class="cta-btns">
-            <a href="services.html" class="cta-btn1"
-              ><i class="fas fa-layer-group"></i> Explore Services</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <kmep-footer></kmep-footer>
+
+    <a
+      class="k-wa"
+      href="https://wa.me/919710439000?text=Hi%20KMEP%2C%20I%27d%20like%20to%20enquire%20about%20your%20MEP%20services."
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat on WhatsApp"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
+    <!-- <script>
+      (function () {
+        /* mobile menu */
+        var burger = document.getElementById("kBurger");
+        var nav = document.getElementById("kNav");
+        if (burger && nav) {
+          burger.addEventListener("click", function () {
+            var open = nav.classList.toggle("open");
+            burger.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+          nav.addEventListener("click", function (e) {
+            if (e.target.tagName === "A") {
+              nav.classList.remove("open");
+              burger.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+      })();
+    </script> -->
   </body>
 </html>

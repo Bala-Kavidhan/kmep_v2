@@ -15,7 +15,6 @@
     <meta name="author" content="Keerthan MEP Engineers" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Services — Keerthan MEP Engineers" />
     <meta
       property="og:description"
@@ -25,7 +24,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kavidhan.com/services.html" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Services — Keerthan MEP Engineers" />
     <meta
@@ -34,10 +32,10 @@
     />
     <meta name="twitter:image" content="https://kavidhan.com/IMAGES/logo.png" />
 
-    <link rel="canonical" href="https://kavidhan.com//services.html" />
+    <link rel="canonical" href="https://kavidhan.com/services.html" />
     <link rel="icon" href="IMAGES/logo.png" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -45,537 +43,248 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="kmep-home.css" />
+    <script src="kmep-layout.js" defer></script>
+
     <style>
-      /* ══════════════════════════════════════════
-       HIDE SCROLLBAR
-    ══════════════════════════════════════════ */
-      ::-webkit-scrollbar {
-        display: none;
+      /* ── HERO ── */
+      .ks-hero {
+        background: linear-gradient(135deg, #2a1038 0%, #3a1655 100%);
+        color: #fff;
+        padding: 80px 0 72px;
+        text-align: center;
       }
-      html {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+      .ks-hero .k-eyebrow {
+        color: #e3b8f5;
       }
-      body {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+      .ks-hero h1 {
+        font-size: clamp(32px, 4.4vw, 52px);
+        font-weight: 700;
+        letter-spacing: -1px;
+        line-height: 1.15;
+        margin: 10px 0 8px;
+      }
+      .ks-hero h1 span {
+        display: block;
+        color: #e3b8f5;
+      }
+      .ks-hero p {
+        max-width: 720px;
+        margin: 14px auto 0;
+        color: #d9c6e6;
+        line-height: 1.75;
+        font-size: 16px;
+      }
+      .ks-intro {
+        max-width: 860px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 17px;
+        line-height: 1.9;
+        color: #4a4452;
+      }
+      .ks-intro strong {
+        color: #2a1038;
       }
 
-      .page-hero {
-        min-height: clamp(340px, 40vh, 520px);
-        padding-bottom: 56px;
-        align-items: flex-end;
-        overflow: hidden;
-        background: var(--off);
-        border-bottom: 1px solid var(--border);
+      /* ── SERVICE ROWS ── */
+      .ks-rows {
+        display: grid;
+        gap: 28px;
       }
-      .ph-grid {
-        display: none;
-      }
-      .ph-glow {
-        background:
-          radial-gradient(
-            circle 260px at 85% 20%,
-            rgba(163, 82, 196, 0.08) 0%,
-            transparent 70%
-          ),
-          radial-gradient(
-            circle 220px at 10% 85%,
-            rgba(114, 42, 138, 0.06) 0%,
-            transparent 70%
-          );
-      }
-      .ph-eyebrow {
-        background: #fff;
-        border-color: var(--border);
-        color: var(--slate);
-        box-shadow: var(--sh);
-      }
-      .ph-h1 {
-        color: var(--navy);
-      }
-      .ph-sub {
-        color: #4a5568;
-      }
-      @media (max-width: 860px) {
-        .page-hero {
-          min-height: clamp(320px, 42vh, 460px);
-        }
-      }
-      @media (max-width: 600px) {
-        .page-hero {
-          min-height: clamp(300px, 40vh, 420px);
-        }
-      }
-      @media (max-width: 480px) {
-        .page-hero {
-          min-height: clamp(280px, 38vh, 380px);
-        }
-      }
-      .ph-line2 {
-        display: inline;
-        font-family: "Outfit", sans-serif;
-        font-weight: 800;
-        font-size: inherit;
-        line-height: inherit;
-        letter-spacing: inherit;
-        background: linear-gradient(90deg, var(--blue), var(--sky));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin: 0;
-      }
-      .intro-strip {
-        background: #fff;
-        padding: 36px 0;
-      }
-      .intro-inner {
-        display: flex;
-        align-items: center;
-        gap: 52px;
-        flex-wrap: wrap;
-      }
-      .intro-text {
-        flex: 1;
-        min-width: 260px;
-        font-size: 16px;
-        color: var(--slate);
-        line-height: 1.85;
-      }
-      .intro-text strong {
-        color: var(--navy);
-      }
-      .intro-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        flex-shrink: 0;
-      }
-      .ibadge {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 9px 16px;
-        border-radius: 9px;
-        background: #fff;
-        border: 1.5px solid var(--border);
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--navy);
-      }
-      .ibadge i {
-        color: var(--teal);
-        font-size: 12px;
-      }
-      #services {
-        padding: 108px 0;
-        background: #fff;
-      }
-      .svc-list {
-        display: flex;
-        flex-direction: column;
-      }
-      .svc-row {
+      .ks-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        align-items: stretch;
-        min-height: clamp(380px, 32vw, 480px);
-        border-bottom: 1.5px solid var(--border);
+        background: #fff;
+        border: 1px solid #e4e0d8;
+        border-radius: 14px;
         overflow: hidden;
+        box-shadow: 0 16px 40px rgba(42, 16, 56, 0.06);
       }
-      .svc-row:first-child {
-        border-top: 1.5px solid var(--border);
-      }
-      .svc-row.reverse .svc-visual {
+      .ks-row.rev .ks-vis {
         order: 2;
       }
-      .svc-row.reverse .svc-content {
-        order: 1;
-      }
-      .svc-visual {
-        position: relative;
-        background: linear-gradient(135deg, #dbeafe 0%, #faf3fc 100%);
-        overflow: hidden;
+      .ks-vis {
+        background: #f4f1ea;
         display: flex;
         align-items: center;
         justify-content: center;
-        align-self: stretch;
+        padding: 32px;
+        min-height: 320px;
       }
-      .svc-visual::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 4px;
-        background: linear-gradient(
-          to bottom,
-          var(--blue),
-          var(--sky),
-          var(--teal)
-        );
-        z-index: 2;
-      }
-      .svc-row.reverse .svc-visual::before {
-        left: auto;
-        right: 0;
-      }
-      .svc-visual img {
-        width: 85%;
-        height: 85%;
+      .ks-vis img {
+        max-width: 100%;
+        max-height: 300px;
         object-fit: contain;
-        position: relative;
-        z-index: 1;
-        transition: transform 0.5s;
-        filter: drop-shadow(0 20px 40px rgba(12, 30, 53, 0.12));
+        transition: transform 0.4s;
       }
-      .svc-row:hover .svc-visual img {
-        transform: scale(1.05) translateY(-4px);
+      .ks-row:hover .ks-vis img {
+        transform: scale(1.04);
       }
-      .svc-num {
-        position: absolute;
-        bottom: -16px;
-        right: 20px;
-        font-family: "Outfit", sans-serif;
-        font-size: 120px;
-        font-weight: 800;
-        color: rgba(114, 42, 138, 0.06);
-        line-height: 1;
-        pointer-events: none;
-        user-select: none;
-      }
-      .svc-content {
-        padding: clamp(32px, 5vw, 64px) clamp(24px, 5vw, 72px) !important;
+      .ks-txt {
+        padding: 40px 44px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background: #fff;
-        position: relative;
       }
-      .svc-content::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, var(--blue), var(--sky));
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.5s;
-      }
-      .svc-row:hover .svc-content::before {
-        transform: scaleX(1);
-      }
-      .svc-ico-wrap {
+      .ks-ttl {
         display: flex;
         align-items: center;
-        gap: 16px;
-        margin-bottom: 24px;
+        gap: 14px;
+        margin-bottom: 14px;
       }
-      .svc-ico {
-        width: 54px;
-        height: 54px;
-        border-radius: 14px;
+      .ks-ico {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
         flex-shrink: 0;
-        background: linear-gradient(135deg, #dbeafe, #e2c4ee);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 22px;
-        color: var(--blue);
+        background: #f1e4f8;
+        color: #7b2d9b;
+        font-size: 19px;
       }
-      .icon-tile.green {
-        background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-        color: var(--teal);
-      }
-      .icon-tile.yellow {
-        background: linear-gradient(135deg, #fef9c3, #fde68a);
-        color: #ca8a04;
-      }
-      .icon-tile.sky {
-        background: linear-gradient(135deg, #e0f2fe, #bae6fd);
-        color: #0284c7;
-      }
-      .svc-label {
-        font-size: 10px;
+      .ks-ttl h2 {
+        font-size: 24px;
         font-weight: 700;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        color: var(--muted);
+        color: #2a1038;
+        margin: 0;
       }
-      .feat-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 13px;
+      .ks-txt > p {
+        color: #4a4452;
+        line-height: 1.8;
         font-size: 15.5px;
-        color: var(--navy);
-        font-weight: 600;
+        margin: 0 0 18px;
       }
-      .svc-desc {
-        font-size: 16px;
-        color: var(--slate);
-        line-height: 1.85;
-        margin-bottom: 32px;
-        max-width: 460px;
-        text-align: justify;
-        text-justify: inter-word;
+      .ks-list {
+        list-style: none;
+        margin: 0 0 24px;
+        padding: 0;
+        display: grid;
+        gap: 9px;
       }
-      .feat-list {
+      .ks-list li {
         display: flex;
-        flex-direction: column;
-        gap: 11px;
-        margin-bottom: 36px;
-      }
-      .feat-item {
-        display: flex;
+        gap: 10px;
         align-items: flex-start;
-        gap: 13px;
         font-size: 14.5px;
-        color: var(--navy);
         font-weight: 600;
+        color: #2a1038;
+        line-height: 1.5;
       }
-      .feat-item::before {
-        content: "";
-        display: block;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
+      .ks-list i {
+        color: #7b2d9b;
+        font-size: 12px;
+        margin-top: 4px;
         flex-shrink: 0;
-        margin-top: 1px;
-        background: linear-gradient(135deg, #dbeafe, #e2c4ee)
-          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23722a8a'%3E%3Cpath d='M13.3 4.3a1 1 0 0 1 0 1.4l-6 6a1 1 0 0 1-1.4 0l-3-3a1 1 0 1 1 1.4-1.4L6.6 9.6l5.3-5.3a1 1 0 0 1 1.4 0z'/%3E%3C/svg%3E")
-          center/11px no-repeat;
-        border: 1.5px solid rgba(114, 42, 138, 0.2);
       }
-      #process {
-        padding: 108px 0;
-        background: var(--off);
-      }
-      .proc-track {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        position: relative;
-      }
-      .proc-track::before {
-        content: "";
-        position: absolute;
-        top: 36px;
-        left: 10%;
-        right: 10%;
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          var(--sky),
-          var(--blue),
-          var(--teal)
-        );
-        border-radius: 2px;
-      }
-      .proc-step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 16px;
-        position: relative;
-        z-index: 1;
-      }
-      .proc-circle {
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        background: #fff;
-        border: 2px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        color: var(--blue);
-        margin-bottom: 22px;
-        box-shadow: var(--sh);
-        transition:
-          border-color 0.3s,
-          box-shadow 0.3s,
-          background 0.3s,
-          color 0.3s;
-        position: relative;
-      }
-      .proc-step:hover .proc-circle {
-        border-color: var(--blue);
-        background: var(--blue);
-        color: #fff;
-        box-shadow: 0 8px 28px rgba(114, 42, 138, 0.25);
-      }
-      .proc-n {
-        position: absolute;
-        top: -8px;
-        right: -8px;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background: var(--sky);
-        color: #fff;
-        font-size: 9px;
-        font-weight: 800;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .proc-title {
-        font-size: 14px;
-        font-weight: 800;
-        color: var(--navy);
-        margin-bottom: 8px;
-        line-height: 1.3;
-      }
-      .proc-desc {
-        font-size: 12.5px;
-        color: var(--slate);
-        line-height: 1.65;
-      }
-      #why-mini {
-        padding: 108px 0;
-      }
-      .wm-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-      @media (max-width: 1100px) {
-        .svc-row {
-          grid-template-columns: 1fr;
-          min-height: auto;
-          gap: 0;
-          border-bottom: none;
-        }
-        .svc-row:not(:last-child) {
-          border-bottom: 1.5px solid var(--border);
-        }
-        .svc-row.reverse .svc-visual {
-          order: 0;
-        }
-        .svc-row.reverse .svc-content {
-          order: 1;
-        }
-        .svc-visual {
-          aspect-ratio: 16 / 10;
-        }
-        .svc-content {
-          padding: 32px clamp(20px, 6vw, 32px) 40px !important;
-        }
-        .svc-desc {
-          text-align: left;
-          text-justify: auto;
-        }
-        .proc-track {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 32px;
-        }
-        .proc-track::before {
-          display: none;
-        }
-        .wm-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (max-width: 860px) {
-        #services,
-        #process,
-        #why-mini {
-          padding: 72px 0;
-        }
-        .proc-track {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 28px;
-        }
-        .wm-grid {
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
-        .intro-inner {
-          gap: 28px;
-        }
-      }
-      @media (max-width: 480px) {
-        .svc-visual {
-          aspect-ratio: 4 / 3;
-        }
-        .svc-content {
-          padding: 28px 20px 36px !important;
-        }
-        .proc-track {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-        .intro-badges {
-          display: none;
-        }
+      .ks-txt .k-btn {
+        align-self: flex-start;
       }
 
-      .svc-grid {
+      /* ── SLIDER CARDS ── */
+      .ks-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
       }
-      .svc-card {
+      .ks-card {
         display: grid;
         grid-template-columns: 1fr 38%;
-        border: 1px solid var(--border);
-        border-radius: 20px;
         background: #fff;
+        border: 1px solid #e4e0d8;
+        border-radius: 14px;
         overflow: hidden;
         transition:
           box-shadow 0.3s,
-          transform 0.3s;
+          transform 0.3s,
+          border-color 0.3s;
       }
-      .svc-card:hover {
-        box-shadow: var(--sh);
+      .ks-card:hover {
+        border-color: #b57edc;
+        box-shadow: 0 18px 40px rgba(74, 20, 100, 0.14);
         transform: translateY(-3px);
       }
-      .svc-card-body {
+      .ks-body {
         padding: 24px;
         display: flex;
         flex-direction: column;
         gap: 12px;
       }
-      .svc-tag {
+      .ks-tag {
         align-self: flex-start;
-        font-size: 10px;
+        font-size: 10.5px;
         font-weight: 700;
-        letter-spacing: 1px;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         padding: 5px 10px;
         border-radius: 6px;
-        background: #f1e1f7;
-        color: #722a8a;
-        border: 1px solid #e2c4ee;
+        background: #f1e4f8;
+        color: #7b2d9b;
       }
-      .svc-tag.green {
-        background: #d1fae5;
-        color: #047857;
-        border-color: #a7f3d0;
-      }
-      .svc-tag.yellow {
-        background: #fef9c3;
-        color: #a16207;
-        border-color: #fde68a;
-      }
-      .svc-tag.indigo {
-        background: #e0e7ff;
-        color: #4338ca;
-        border-color: #c7d2fe;
-      }
-      .svc-card h3 {
+      .ks-card h3 {
         font-size: 20px;
         font-weight: 700;
-        color: var(--navy);
+        color: #2a1038;
         line-height: 1.3;
         margin: 0;
       }
-      .svc-card-desc {
+      .ks-dots {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .ks-dots i {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #e4e0d8;
+        transition:
+          background 0.3s,
+          width 0.3s;
+      }
+      .ks-dots i.active {
+        background: #7b2d9b;
+        width: 18px;
+        border-radius: 6px;
+      }
+      .ks-slider {
+        display: grid;
+      }
+      .ks-slide {
+        grid-area: 1/1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.5s,
+          visibility 0.5s;
+      }
+      .ks-slide.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .ks-head {
+        border-left: 3px solid #7b2d9b;
+        padding-left: 12px;
+      }
+      .ks-head b {
+        display: block;
+        font-size: 15px;
+        color: #2a1038;
+        margin-bottom: 2px;
+      }
+      .ks-head span {
+        font-size: 13px;
+        color: #6b6475;
+        line-height: 1.5;
+      }
+      .ks-desc {
         font-size: 14px;
-        color: var(--slate);
+        color: #4a4452;
         line-height: 1.65;
         margin: 0;
         display: -webkit-box;
@@ -583,22 +292,57 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
-      .svc-card .feat-list {
+      .ks-feat {
+        list-style: none;
+        margin: 0;
+        padding: 0;
         display: none;
-        margin: 4px 0 0;
         gap: 8px;
       }
-      .svc-card .feat-item {
+      .ks-feat li {
+        display: flex;
+        gap: 9px;
         font-size: 13px;
+        font-weight: 600;
+        color: #2a1038;
+        line-height: 1.5;
       }
-      .svc-card.open .svc-card-desc {
+      .ks-feat li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 10px;
+        color: #7b2d9b;
+        margin-top: 3px;
+      }
+      .ks-learn {
+        display: none;
+        align-self: flex-start;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 18px;
+        border-radius: 8px;
+        background: #7b2d9b;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background 0.25s;
+      }
+      .ks-learn:hover {
+        background: #2a1038;
+      }
+      .ks-card.open .ks-desc {
         -webkit-line-clamp: unset;
         display: block;
       }
-      .svc-card.open .feat-list {
-        display: flex;
+      .ks-card.open .ks-feat {
+        display: grid;
       }
-      .svc-more {
+      .ks-card.open .ks-learn {
+        display: inline-flex;
+      }
+      .ks-more {
         background: none;
         border: 0;
         padding: 0;
@@ -606,200 +350,113 @@
         font:
           700 13px "Outfit",
           sans-serif;
-        color: var(--blue);
+        color: #7b2d9b;
         cursor: pointer;
       }
-      .svc-more i {
+      .ks-more i {
         font-size: 10px;
         margin-left: 4px;
         transition: transform 0.3s;
       }
-      .svc-card.open .svc-more i {
+      .ks-card.open .ks-more i {
         transform: rotate(180deg);
       }
-      .svc-go {
+      .ks-go {
         margin-top: auto;
         width: 34px;
         height: 34px;
         border-radius: 50%;
-        border: 1px solid var(--border);
-        background: var(--off);
+        border: 1px solid #e4e0d8;
+        background: #f4f1ea;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--sky);
+        color: #7b2d9b;
         font-size: 13px;
         text-decoration: none;
         transition:
-          background 0.3s,
-          color 0.3s;
+          background 0.25s,
+          color 0.25s;
       }
-      .svc-go:hover {
-        background: var(--blue);
+      .ks-go:hover {
+        background: #7b2d9b;
         color: #fff;
       }
-      .svc-card-img {
-        background: var(--off);
+      .ks-img {
+        background: #f4f1ea;
         display: grid;
         place-items: center;
         padding: 16px;
       }
-      .svc-card-img img {
+      .ks-img img {
         grid-area: 1/1;
         max-width: 100%;
-        max-height: 160px;
+        max-height: 180px;
         object-fit: contain;
         opacity: 0;
         transition: opacity 0.5s;
       }
-      .svc-card-img img.active {
+      .ks-img img.active {
         opacity: 1;
       }
+
       @media (max-width: 1100px) {
-        .svc-grid {
+        .ks-grid {
           grid-template-columns: 1fr;
         }
       }
-      @media (max-width: 480px) {
-        .svc-card {
+      @media (max-width: 860px) {
+        .ks-row {
           grid-template-columns: 1fr;
         }
-        .svc-card-img {
+        .ks-row.rev .ks-vis {
+          order: 0;
+        }
+        .ks-vis {
+          min-height: 220px;
+          padding: 24px;
+        }
+        .ks-txt {
+          padding: 28px 22px;
+        }
+      }
+      @media (max-width: 600px) {
+        .ks-hero {
+          padding: 56px 0 48px;
+        }
+        .ks-card {
+          grid-template-columns: 1fr;
+        }
+        .ks-img {
           order: -1;
         }
-      }
-      .svc-slider {
-        display: grid;
-      }
-      .svc-head {
-        border-left: 3px solid var(--sky);
-        padding-left: 12px;
-      }
-      .svc-slide {
-        grid-area: 1/1;
-        opacity: 0;
-        visibility: hidden;
-        transition:
-          opacity 0.5s,
-          visibility 0.5s;
-      }
-      .svc-slide.active {
-        opacity: 1;
-        visibility: visible;
-      }      .svc-slide {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .svc-slide b {
-        display: block;
-        font-size: 14px;
-        color: var(--navy);
-        margin-bottom: 2px;
-      }
-      .svc-slide span {
-        font-size: 13px;
-        color: var(--slate);
-        line-height: 1.5;
-      }
-      .svc-dots {
-        display: flex;
-        gap: 6px;
-      }
-      .svc-dots i {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--border);
-        transition:
-          background 0.3s,
-          width 0.3s;
-      }
-      .svc-dots i.active {
-        background: var(--blue);
-        width: 18px;
-        border-radius: 6px;
       }
     </style>
   </head>
   <body>
     <kmep-header></kmep-header>
-    <noscript>
-      <header
-        style="
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 1000;
-          height: 60px;
-          background: #fff;
-          border-bottom: 1px solid #dde4ed;
-          display: flex;
-          align-items: center;
-          padding: 0 48px;
-          font-family: sans-serif;
-        "
-      >
-        <a
-          href="index.html"
-          style="
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-          "
-        >
-          <img src="IMAGES/logo.png" alt="KMEP Logo" style="height: 40px" />
-          <span style="color: #722a8a; font-weight: 700; letter-spacing: 2px"
-            >KEERTHAN<br /><small style="letter-spacing: 2px; font-weight: 500"
-              >MEP ENGINEERS</small
-            ></span
-          >
-        </a>
-        <nav style="margin-left: auto; display: flex; gap: 20px">
-          <a href="index.html" style="color: #5a6a7e; text-decoration: none"
-            >Home</a
-          >
-          <a href="about.html" style="color: #5a6a7e; text-decoration: none"
-            >Company</a
-          >
-          <a href="services.html" style="color: #5a6a7e; text-decoration: none"
-            >Services</a
-          >
-          <a
-            href="contact-us.html"
-            style="color: #5a6a7e; text-decoration: none"
-            >Contact Us</a
-          >
-        </nav>
-      </header>
-    </noscript>
 
-    <section class="page-hero">
-      <div class="ph-grid"></div>
-      <div class="ph-glow"></div>
-      <div class="ph-body">
-        <div class="ph-eyebrow">
-          <span class="ph-pulse"></span>INTEGRATED MEP ENGINEERING
+    <main>
+      <!-- HERO -->
+      <section class="ks-hero">
+        <div class="k-in">
+          <span class="k-eyebrow">Integrated MEP engineering</span>
+          <h1>
+            Engineered for performance. <span>Designed for the future.</span>
+          </h1>
+          <p>
+            Keerthan MEP delivers integrated engineering solutions that unite
+            intelligent design, technical precision, and dependable
+            execution—creating high-performing environments built for lasting
+            value.
+          </p>
         </div>
-        <h1 class="ph-h1">
-          Engineered for Performance.
-          <span class="ph-line2">Designed for the Future.</span>
-        </h1>
+      </section>
 
-        <p class="ph-sub ph-sub-clamp">
-          Keerthan MEP delivers integrated engineering solutions that unite
-          intelligent design, technical precision, and dependable
-          execution—creating high-performing environments built for lasting
-          value.
-        </p>
-      </div>
-    </section>
-    <div class="intro-strip">
-      <div class="wrap">
-        <div class="intro-inner">
-          <p class="intro-text">
+      <!-- INTRO -->
+      <section class="k-sec">
+        <div class="k-in">
+          <p class="ks-intro">
             <strong>Keerthan MEP Engineers</strong> provides end-to-end
             expertise across HVAC, mechanical, electrical, plumbing, building
             management systems, energy optimisation, and indoor air quality.
@@ -808,428 +465,1563 @@
             efficiency, reliability, and enduring performance.
           </p>
         </div>
-      </div>
-    </div>
-    <section id="services">
-      <div class="svc-list">
-        <div class="svc-row rv">
-          <div class="svc-visual">
-            <img src="IMAGES/hvac.png" alt="HVAC" />
-          </div>
-          <div class="svc-content" style="padding-left: 72px">
-            <div class="svc-ico-wrap">
-              <div class="svc-ico"><i class="fas fa-fan"></i></div>
+      </section>
 
-              <h2 class="svc-name">HVAC Systems</h2>
+      <!-- SERVICE ROWS -->
+      <section class="k-sec is-grey" id="disciplines">
+        <div class="k-in">
+          <div class="k-head">
+            <span class="k-eyebrow">What we do</span>
+            <h2 class="k-h2">Four disciplines, one accountable team</h2>
+          </div>
+          <div class="ks-rows">
+            <div class="ks-row">
+              <div class="ks-vis"><img src="IMAGES/hvac.png" alt="HVAC" /></div>
+              <div class="ks-txt">
+                <div class="ks-ttl">
+                  <div class="ks-ico"><i class="fas fa-fan"></i></div>
+                  <h2>HVAC Systems</h2>
+                </div>
+                <p>
+                  Precision-engineered climate solutions designed to elevate
+                  indoor comfort, air quality, and energy performance. From
+                  concept to commissioning, we deliver reliable HVAC systems
+                  tailored to each building’s operational demands.
+                </p>
+                <ul class="ks-list">
+                  <li>
+                    <i class="fas fa-circle-check"></i>HVAC Design &amp; System
+                    Engineering
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Heating, Ventilation
+                    &amp; Air-Conditioning Solutions
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Indoor Air Quality &amp;
+                    Fresh-Air Management
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Energy-Efficient Cooling
+                    &amp; Heating Systems
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>System Upgrades,
+                    Modernisation &amp; Retrofits
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Testing, Commissioning
+                    &amp; Performance Validation
+                  </li>
+                </ul>
+                <!-- <a href="contact-us.html" class="k-btn is-brand"
+                  >Enquire about HVAC <i class="fas fa-arrow-right"></i
+                ></a> -->
+              </div>
             </div>
 
-            <p class="svc-desc">
-              Precision-engineered climate solutions designed to elevate indoor
-              comfort, air quality, and energy performance. From concept to
-              commissioning, we deliver reliable HVAC systems tailored to each
-              building’s operational demands.
+            <div class="ks-row rev">
+              <div class="ks-vis">
+                <img src="IMAGES/mechanical.png" alt="Mechanical" />
+              </div>
+              <div class="ks-txt">
+                <div class="ks-ttl">
+                  <div class="ks-ico">
+                    <i class="fas fa-screwdriver-wrench"></i>
+                  </div>
+                  <h2>Mechanical Engineering</h2>
+                </div>
+                <p>
+                  High-performance mechanical solutions engineered with
+                  precision to enhance operational efficiency, system
+                  reliability, and lifecycle value. From initial design through
+                  execution and commissioning, every system is tailored to meet
+                  the project’s technical and operational requirements.
+                </p>
+                <ul class="ks-list">
+                  <li>
+                    <i class="fas fa-circle-check"></i>Mechanical System Design
+                    &amp; Engineering
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Energy-Efficient
+                    Mechanical Solutions
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Pumping Systems &amp;
+                    Piping Infrastructure
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Fire Protection &amp;
+                    Suppression Systems
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Equipment Selection &amp;
+                    System Integration
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>System Modernisation
+                    &amp; Performance Upgrades
+                  </li>
+                </ul>
+                <a href="contact-us.html" class="k-btn is-brand"
+                  >Enquire about Mechanical <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="ks-row">
+              <div class="ks-vis">
+                <img src="IMAGES/elctrical_.png" alt="Electrical" />
+              </div>
+              <div class="ks-txt">
+                <div class="ks-ttl">
+                  <div class="ks-ico"><i class="fas fa-bolt"></i></div>
+                  <h2>Electrical Works</h2>
+                </div>
+                <p>
+                  Intelligent electrical solutions engineered to provide
+                  dependable power, exceptional system integrity, and efficient
+                  performance. From load planning and distribution to lighting
+                  and automation, every system is designed for operational
+                  reliability and long-term value.
+                </p>
+                <ul class="ks-list">
+                  <li>
+                    <i class="fas fa-circle-check"></i>Electrical System Design
+                    &amp; Load Planning
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>LV Power Distribution
+                    Systems
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Lighting Design &amp;
+                    Control Solutions
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Emergency Power &amp;
+                    Backup Systems
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>BMS, Controls &amp;
+                    Automation Integration
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Testing, Commissioning
+                    &amp; Compliance Verification
+                  </li>
+                </ul>
+                <!-- <a href="contact-us.html" class="k-btn is-brand"
+                  >Enquire about Electrical <i class="fas fa-arrow-right"></i
+                ></a> -->
+              </div>
+            </div>
+
+            <div class="ks-row rev">
+              <div class="ks-vis">
+                <img src="IMAGES/plumbing.png" alt="Plumbing" />
+              </div>
+              <div class="ks-txt">
+                <div class="ks-ttl">
+                  <div class="ks-ico"><i class="fas fa-wrench"></i></div>
+                  <h2>Plumbing Solutions</h2>
+                </div>
+                <p>
+                  High-performance plumbing systems designed to ensure efficient
+                  water management, superior hygiene, and dependable operation.
+                  From system design and distribution to drainage and
+                  conservation, every solution is engineered for lasting
+                  performance and lifecycle value.
+                </p>
+                <ul class="ks-list">
+                  <li>
+                    <i class="fas fa-circle-check"></i>Plumbing System Design
+                    &amp; Engineering
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Water Supply &amp;
+                    Distribution Systems
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Drainage, Sewerage &amp;
+                    Sanitation Systems
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Water-Efficient Plumbing
+                    Solutions
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Rainwater Harvesting
+                    &amp; Reuse Systems
+                  </li>
+                  <li>
+                    <i class="fas fa-circle-check"></i>Testing, Commissioning
+                    &amp; Performance Validation
+                  </li>
+                </ul>
+                <!-- <a href="contact-us.html" class="k-btn is-brand"
+                  >Enquire about Plumbing <i class="fas fa-arrow-right"></i
+                ></a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPECIALISATIONS -->
+      <section class="k-sec" id="specialisations">
+        <div class="k-in">
+          <div class="k-head">
+            <span class="k-eyebrow">Specialisations</span>
+            <h2 class="k-h2">Explore what's inside each discipline</h2>
+            <p class="k-lead">
+              Browse the services within each discipline. Click “Read more” for
+              details.
             </p>
-            <ul class="feat-list">
-              <li class="feat-item">HVAC Design & System Engineering</li>
-              <li class="feat-item">
-                Heating, Ventilation & Air-Conditioning Solutions
-              </li>
-              <li class="feat-item">
-                Indoor Air Quality & Fresh-Air Management
-              </li>
-              <li class="feat-item">
-                Energy-Efficient Cooling & Heating Systems
-              </li>
-              <li class="feat-item">
-                System Upgrades, Modernisation & Retrofits
-              </li>
-              <li class="feat-item">
-                Testing, Commissioning & Performance Validation
-              </li>
-            </ul>
-            <a href="contact-us.html" class="btn-sky"
-              >Enquire About HVAC <i class="fas fa-arrow-right"></i
-            ></a>
           </div>
-        </div>
-        <div class="svc-row reverse rv">
-          <div
-            class="svc-visual"
-            style="
-              background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%);
-            "
-          >
-            <img src="IMAGES/mechanical.png" alt="Mechanical" />
-          </div>
-          <div class="svc-content" style="padding-right: 72px">
-            <div class="svc-ico-wrap">
-              <div class="svc-ico icon-tile green">
-                <i class="fas fa-screwdriver-wrench"></i>
-              </div>
 
-              <h2 class="svc-name">Mechanical Engineering</h2>
+          <div class="ks-grid">
+            <!-- HVAC -->
+            <div class="ks-card" id="hvac">
+              <div class="ks-body">
+                <span class="ks-tag">HVAC</span>
+                <h3>HVAC Systems</h3>
+                <div class="ks-dots">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                  ><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <div class="ks-slider">
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Heat Load Calculation</b
+                      ><span
+                        >Precise thermal load auditing for correctly sized,
+                        efficient HVAC systems.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Room-by-room thermal analysis so equipment is sized to the
+                      real load, never oversized or undersized.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Solar gain and building envelope analysis</li>
+                      <li>Occupancy, lighting and equipment loads</li>
+                      <li>Fresh-air load as per ASHRAE norms</li>
+                      <li>Room-wise engineering report</li>
+                    </ul>
+                    <a
+                      href="./hvac/hvac-heat-load-calculation.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Duct Design</b
+                      ><span
+                        >Low-static, silent duct routing for balanced air
+                        distribution.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Duct layouts sized for low pressure drop, quiet operation
+                      and even air delivery in every room.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Low-static duct sizing</li>
+                      <li>Silent, velocity-controlled layouts</li>
+                      <li>Balanced air distribution</li>
+                      <li>Damper, grille and diffuser layout</li>
+                    </ul>
+                    <a href="./hvac/hvac-duct-design.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>HVAC System Design</b
+                      ><span
+                        >VRV, DX, split and chiller layouts engineered for every
+                        building.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Complete system design from concept to schematics, matched
+                      to your building type, budget and operating needs.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>VRV/VRF and DX systems</li>
+                      <li>Split and ducted layouts</li>
+                      <li>Chilled water plant design</li>
+                      <li>Equipment selection and schematics</li>
+                    </ul>
+                    <a href="./hvac/hvac-system-design.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Ventilation Design</b
+                      ><span
+                        >STP, basement jet-fans and staircase pressurization
+                        systems.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Mechanical ventilation and pressurisation systems designed
+                      for safety, air quality and code compliance.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Basement and car-park jet-fan ventilation</li>
+                      <li>Staircase pressurisation systems</li>
+                      <li>STP and plant-room ventilation</li>
+                      <li>Fresh-air and exhaust design</li>
+                    </ul>
+                    <a
+                      href="./hvac/hvac-ventilation-design.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Customized HVAC Proposals</b
+                      ><span
+                        >Accurate, site-specific proposals tailored to your
+                        requirements.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Itemised proposals built from your actual load and site
+                      conditions, not generic templates.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Site-specific, load-based proposals</li>
+                      <li>Itemised BOQ and equipment options</li>
+                      <li>Lifecycle cost comparison</li>
+                      <li>Clear scope and timelines</li>
+                    </ul>
+                    <a href="./hvac/hvac-cost-estimation.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>After Sales Service</b
+                      ><span
+                        >Dedicated AMC networks and prompt emergency repair
+                        response.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Annual maintenance and breakdown support to keep your
+                      systems running at rated performance.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Annual maintenance contracts</li>
+                      <li>Preventive servicing schedules</li>
+                      <li>Prompt emergency repair response</li>
+                      <li>Spares support and service reports</li>
+                    </ul>
+                    <a href="./hvac/hvac-amc-services.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Contract Execution</b
+                      ><span
+                        >Structured mechanical contracting delivered against
+                        rigid timelines.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      End-to-end site execution with planning, coordination and
+                      quality control from mobilisation to handover.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Structured mechanical contracting</li>
+                      <li>Schedule-driven site execution</li>
+                      <li>Coordination with other trades</li>
+                      <li>Testing, commissioning and handover</li>
+                    </ul>
+                    <a
+                      href="./hvac/hvac-project-management.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>AutoCAD Drafting</b
+                      ><span
+                        >Detailed 2D schematics and mechanical routing
+                        blueprints.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Accurate 2D drawings for design, coordination,
+                      installation and as-built records.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>2D schematics and layouts</li>
+                      <li>Duct and pipe routing drawings</li>
+                      <li>Coordination and shop drawings</li>
+                      <li>As-built documentation</li>
+                    </ul>
+                    <a href="./hvac/hvac-shop-drawings.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Tender Value Engineering</b
+                      ><span
+                        >Audit and optimization of HVAC plans to control project
+                        capital cost.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Review of design and specifications to reduce cost without
+                      compromising performance.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Audit of HVAC plans and specifications</li>
+                      <li>Cost-saving alternatives</li>
+                      <li>Capital cost control</li>
+                      <li>Tender documents and BOQ review</li>
+                    </ul>
+                    <a
+                      href="./hvac/hvac-tender-preparation.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Health &amp; Safety Policy</b
+                      ><span
+                        >Strict zero-accident policy executed across all
+                        contracting sites.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      A site safety framework that protects our crews, your
+                      people and your property.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Zero-accident site policy</li>
+                      <li>Safety induction and toolbox talks</li>
+                      <li>PPE and work-at-height controls</li>
+                      <li>Incident reporting and audits</li>
+                    </ul>
+                    <a
+                      href="./hvac/hvac-health-safety-policy.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Quality Policy</b
+                      ><span
+                        >Material inspection and pressure-testing
+                        quality-control protocols.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Documented inspection and testing at every stage, from
+                      incoming material to final handover.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Incoming material inspection</li>
+                      <li>Pressure and leak testing protocols</li>
+                      <li>Stage-wise inspection checklists</li>
+                      <li>Documented quality records</li>
+                    </ul>
+                    <a href="./hvac/hvac-quality-policy.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Environmental Policy</b
+                      ><span
+                        >Green refrigerants and energy-efficient system
+                        implementation.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Responsible choices in refrigerants, equipment and site
+                      practice that reduce environmental impact.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Green, low-impact refrigerants</li>
+                      <li>Energy-efficient system selection</li>
+                      <li>Refrigerant recovery and handling</li>
+                      <li>Waste reduction on site</li>
+                    </ul>
+                    <a
+                      href="./hvac/hvac-environmental-policy.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Method Statement</b
+                      ><span
+                        >Standard operating procedures for safe, efficient
+                        installation.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Written procedures that define how each installation
+                      activity is carried out safely and correctly.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Installation SOPs</li>
+                      <li>Safe working sequences</li>
+                      <li>Risk assessment inputs</li>
+                      <li>Approval-ready documentation</li>
+                    </ul>
+                    <a href="./hvac/hvac-method-statement.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Measurement Analysis</b
+                      ><span
+                        >Air balancing, CFM auditing, and temperature grid
+                        mapping.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      On-site measurement to verify that installed systems
+                      deliver the design airflow and temperature.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Air balancing</li>
+                      <li>CFM auditing</li>
+                      <li>Temperature grid mapping</li>
+                      <li>Performance reports</li>
+                    </ul>
+                    <a
+                      href="./hvac/hvac-measurement-analysis.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Supervision &amp; Document Control</b
+                      ><span
+                        >Rigid drawing-revision control and testing report
+                        logs.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Controlled documentation and on-site supervision so work
+                      always follows the latest approved drawings.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Drawing revision control</li>
+                      <li>Testing report logs</li>
+                      <li>On-site supervision</li>
+                      <li>Submittal and approval tracking</li>
+                    </ul>
+                    <a
+                      href="./hvac/hvac-supervision-document-control.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Labour Compliance Policy</b
+                      ><span
+                        >Adherence to statutory ESI-PF and licensing
+                        mandates.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Compliance with statutory labour requirements across every
+                      contracting site.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>ESI and PF compliance</li>
+                      <li>Statutory licensing</li>
+                      <li>Wage and attendance records</li>
+                      <li>Contractor labour audits</li>
+                    </ul>
+                    <a
+                      href="./hvac/hvac-labour-compliance-policy.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                </div>
+                <button
+                  class="ks-more"
+                  type="button"
+                  onclick="this.closest('.ks-card').classList.toggle('open')"
+                >
+                  Read more <i class="fas fa-chevron-down"></i>
+                </button>
+                <!-- <a
+                  href="contact-us.html"
+                  class="ks-go"
+                  aria-label="Enquire about HVAC"
+                  ><i class="fas fa-arrow-right"></i
+                ></a> -->
+              </div>
+              <div class="ks-img">
+                <img
+                  src="IMAGES/hvac-heat-load-calculation.jpg"
+                  alt="Heat Load Calculation"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-duct-design.jpg"
+                  alt="Duct Design"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-system-design.jpg"
+                  alt="HVAC System Design"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-ventilation-design.jpg"
+                  alt="Ventilation Design"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-cost-estimation.jpg"
+                  alt="Customized HVAC Proposals"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-amc-services.jpg"
+                  alt="After Sales Service"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-project-management.jpg"
+                  alt="Contract Execution"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-shop-drawings.jpg"
+                  alt="AutoCAD Drafting"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-tender-preparation.jpg"
+                  alt="Tender Value Engineering"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-health-safety-policy.jpg"
+                  alt="Health &amp; Safety Policy"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-quality-policy.jpg"
+                  alt="Quality Policy"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-environmental-policy.jpg"
+                  alt="Environmental Policy"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-method-statement.jpg"
+                  alt="Method Statement"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-measurement-analysis.jpg"
+                  alt="Measurement Analysis"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-supervision-document-control.jpg"
+                  alt="Supervision &amp; Document Control"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+                <img
+                  src="IMAGES/hvac-labour-compliance-policy.jpg"
+                  alt="Labour Compliance Policy"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/hvac.png';
+                  "
+                />
+              </div>
             </div>
 
-            <p class="svc-desc">
-              High-performance mechanical solutions engineered with precision to
-              enhance operational efficiency, system reliability, and lifecycle
-              value. From initial design through execution and commissioning,
-              every system is tailored to meet the project’s technical and
-              operational requirements.
+            <!-- MECHANICAL -->
+            <div class="ks-card" id="mechanical">
+              <div class="ks-body">
+                <span class="ks-tag">Mechanical</span>
+                <h3>Mechanical Engineering</h3>
+                <div class="ks-dots">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <div class="ks-slider">
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Pumping Stations</b
+                      ><span>Booster and transfer pump skids.</span>
+                    </div>
+                    <p class="ks-desc">
+                      Skid-mounted booster and transfer pump systems engineered
+                      for steady pressure, easy maintenance and reliable
+                      round-the-clock duty.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Duty and standby pump sets</li>
+                      <li>VFD-based pressure control</li>
+                      <li>Vibration-free skid design</li>
+                      <li>Factory pre-tested units</li>
+                    </ul>
+                    <a href="./mech/mech-pumping-stations.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Fire Hydrant Network</b
+                      ><span>Hydrant and wet riser systems.</span>
+                    </div>
+                    <p class="ks-desc">
+                      Complete hydrant and wet riser networks designed and
+                      tested to meet statutory fire safety norms.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Hydrant and wet riser systems</li>
+                      <li>Jockey and main fire pumps</li>
+                      <li>Underground and external ring mains</li>
+                      <li>Hydraulic calculation and testing</li>
+                    </ul>
+                    <a
+                      href="./mech/mech-fire-hydrant-network.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Piping &amp; Valves</b
+                      ><span>Pre-insulated pipework and valve assemblies.</span>
+                    </div>
+                    <p class="ks-desc">
+                      Precision pipework with insulated runs and properly rated
+                      valve assemblies for chilled water, hot water and process
+                      lines.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>MS, GI and HDPE pipework</li>
+                      <li>Thermal insulation and cladding</li>
+                      <li>Isolation and balancing valves</li>
+                      <li>Pressure testing and flushing</li>
+                    </ul>
+                    <a href="./mech/mech-piping-valves.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>System Design</b
+                      ><span
+                        >Mechanical plant and piping engineered end to
+                        end.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Complete mechanical system design from concept to
+                      schematics, matched to your building type, load and
+                      budget.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Plant room and pump room layouts</li>
+                      <li>Piping schematics and routing</li>
+                      <li>Hydraulic and flow calculations</li>
+                      <li>Design drawings and BOQ</li>
+                    </ul>
+                    <a href="./mech/mech-system-design.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Equipment Selection</b
+                      ><span
+                        >Right-sized pumps and plant for the real duty.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Equipment chosen against actual duty points, efficiency
+                      and lifecycle cost, so you get reliable performance
+                      without over-specifying.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Pump head and flow selection</li>
+                      <li>Efficiency and power comparison</li>
+                      <li>Make and model evaluation</li>
+                      <li>Technical submittals</li>
+                    </ul>
+                    <a
+                      href="./mech/mech-equipment-selection.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Fire Sprinkler Systems</b
+                      ><span>Automatic sprinkler design and installation.</span>
+                    </div>
+                    <p class="ks-desc">
+                      Automatic sprinkler networks designed to hazard class and
+                      installed to statutory fire safety standards.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Sprinkler layout and zoning</li>
+                      <li>Pipe sizing and hydraulic design</li>
+                      <li>Alarm valves and flow switches</li>
+                      <li>Testing and commissioning</li>
+                    </ul>
+                    <a
+                      href="./mech/mech-fire-sprinkler-systems.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>System Modernisation</b
+                      ><span>Upgrades for ageing mechanical systems.</span>
+                    </div>
+                    <p class="ks-desc">
+                      Retrofit and upgrade of existing pumps, piping and
+                      controls to improve efficiency and reliability with
+                      minimal downtime.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Condition survey and audit</li>
+                      <li>Pump and motor replacement</li>
+                      <li>VFD and controls retrofit</li>
+                      <li>Phased works with minimal downtime</li>
+                    </ul>
+                    <a
+                      href="./mech/mech-system-modernisation.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                </div>
+                <button
+                  class="ks-more"
+                  type="button"
+                  onclick="this.closest('.ks-card').classList.toggle('open')"
+                >
+                  Read more <i class="fas fa-chevron-down"></i>
+                </button>
+                <!-- <a
+                  href="contact-us.html"
+                  class="ks-go"
+                  aria-label="Enquire about Mechanical"
+                  ><i class="fas fa-arrow-right"></i
+                ></a> -->
+              </div>
+              <div class="ks-img">
+                <img
+                  src="IMAGES/mech-pump.jpg"
+                  alt="Pumping Stations"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/mechanical.png';
+                  "
+                />
+                <img
+                  src="IMAGES/mech-fire.jpg"
+                  alt="Fire Hydrant Network"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/mechanical.png';
+                  "
+                />
+                <img
+                  src="IMAGES/mech-piping.jpg"
+                  alt="Piping &amp; Valves"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/mechanical.png';
+                  "
+                />
+                <img
+                  src="IMAGES/mech-system-design.jpg"
+                  alt="System Design"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/mechanical.png';
+                  "
+                />
+                <img
+                  src="IMAGES/mech-equipment-selection.jpg"
+                  alt="Equipment Selection"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/mechanical.png';
+                  "
+                />
+                <img
+                  src="IMAGES/mech-fire-sprinkler-systems.jpg"
+                  alt="Fire Sprinkler Systems"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/mechanical.png';
+                  "
+                />
+                <img
+                  src="IMAGES/mech-system-modernisation.jpg"
+                  alt="System Modernisation"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/mechanical.png';
+                  "
+                />
+              </div>
+            </div>
+
+            <!-- ELECTRICAL -->
+            <div class="ks-card" id="electrical">
+              <div class="ks-body">
+                <span class="ks-tag">Electrical</span>
+                <h3>Electrical Works</h3>
+                <div class="ks-dots">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <div class="ks-slider">
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Electrical System Design &amp; Load Planning</b
+                      ><span
+                        >Load-based electrical design from connected load to
+                        single-line diagram and protection.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Calculation-led electrical design that sizes supply,
+                      transformers, cables and protection to the real load.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Connected load and maximum demand</li>
+                      <li>Single-line diagram and load schedules</li>
+                      <li>Short-circuit and voltage-drop studies</li>
+                      <li>Earthing and lightning protection design</li>
+                    </ul>
+                    <a
+                      href="./electrical/elec-system-design.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>LV Panels</b
+                      ><span
+                        >MCC, PCC and distribution boards built for safe,
+                        reliable low-voltage power.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Custom-built low-voltage panels that distribute power
+                      safely and reliably, with clear labelling and easy access
+                      for maintenance.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>MCC and PCC panels</li>
+                      <li>Distribution boards</li>
+                      <li>Metering and protection</li>
+                      <li>Type-tested components</li>
+                    </ul>
+                    <a href="./electrical/elec-lv-panels.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>LV Power Distribution</b
+                      ><span
+                        >Cables, busducts, risers and metering that carry power
+                        from the panel to every load.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Cabling, busduct and riser systems that carry power safely
+                      from the main panel to every floor and load.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>XLPE cabling and cable trays</li>
+                      <li>Busbar trunking and risers</li>
+                      <li>Earthing and bonding</li>
+                      <li>Metering and power factor correction</li>
+                    </ul>
+                    <a
+                      href="./electrical/elec-power-distribution.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Lighting Design &amp; Control</b
+                      ><span
+                        >LED lighting design with lux calculations, glare
+                        control and smart dimming.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Energy-efficient LED lighting with smart dimming and
+                      scheduling, designed for comfort, glare control and lower
+                      power bills.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>LED layout and lux design</li>
+                      <li>DALI and smart dimming</li>
+                      <li>Occupancy and daylight sensors</li>
+                      <li>Scene and schedule control</li>
+                    </ul>
+                    <a
+                      href="./electrical/elec-lighting-control.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>DG &amp; UPS Backup</b
+                      ><span
+                        >Generator and UPS systems that keep critical loads
+                        running through a mains failure.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Backup power systems that take over within seconds of a
+                      mains failure, keeping critical loads running without
+                      interruption.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>DG set sizing and installation</li>
+                      <li>Auto mains failure panels</li>
+                      <li>Online UPS for critical loads</li>
+                      <li>Load testing and commissioning</li>
+                    </ul>
+                    <a
+                      href="./electrical/elec-dg-ups-backup.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>BMS, Controls &amp; Automation Integration</b
+                      ><span
+                        >Building management and control systems that monitor
+                        and automate HVAC, power and lighting.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Central monitoring and control of HVAC, power, lighting
+                      and other services through one building management system.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>DDC controllers, sensors and actuators</li>
+                      <li>Integration over BACnet and Modbus</li>
+                      <li>Scheduling, alarms and trend logs</li>
+                      <li>Energy monitoring and reports</li>
+                    </ul>
+                    <a
+                      href="./electrical/elec-bms-automation.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Testing, Commissioning &amp; Compliance Verification</b
+                      ><span
+                        >Tests and checks that prove the electrical installation
+                        is safe, correct and ready for approval.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Systematic testing, commissioning and compliance checks
+                      that confirm the installation is safe, correct and ready
+                      for handover.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Insulation, continuity and earth tests</li>
+                      <li>Protection relay and breaker testing</li>
+                      <li>Functional and load testing</li>
+                      <li>Statutory inspection documentation</li>
+                    </ul>
+                    <a
+                      href="./electrical/elec-testing-commissioning.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                </div>
+                <button
+                  class="ks-more"
+                  type="button"
+                  onclick="this.closest('.ks-card').classList.toggle('open')"
+                >
+                  Read more <i class="fas fa-chevron-down"></i>
+                </button>
+                <!-- <a
+                  href="contact-us.html"
+                  class="ks-go"
+                  aria-label="Enquire about Electrical"
+                  ><i class="fas fa-arrow-right"></i
+                ></a> -->
+              </div>
+              <div class="ks-img">
+                <img
+                  src="IMAGES/elec-design.jpg"
+                  alt="Electrical System Design &amp; Load Planning"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/elctrical_.png';
+                  "
+                />
+                <img
+                  src="IMAGES/elec-panel.jpg"
+                  alt="LV Panels"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/elctrical_.png';
+                  "
+                />
+                <img
+                  src="IMAGES/elec-distribution.jpg"
+                  alt="LV Power Distribution"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/elctrical_.png';
+                  "
+                />
+                <img
+                  src="IMAGES/elec-lighting.jpg"
+                  alt="Lighting Design &amp; Control"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/elctrical_.png';
+                  "
+                />
+                <img
+                  src="IMAGES/elec-dg.jpg"
+                  alt="DG &amp; UPS Backup"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/elctrical_.png';
+                  "
+                />
+                <img
+                  src="IMAGES/elec-bms.jpg"
+                  alt="BMS, Controls &amp; Automation Integration"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/elctrical_.png';
+                  "
+                />
+                <img
+                  src="IMAGES/elec-testing.jpg"
+                  alt="Testing, Commissioning &amp; Compliance Verification"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/elctrical_.png';
+                  "
+                />
+              </div>
+            </div>
+
+            <!-- PLUMBING -->
+            <div class="ks-card" id="plumbing">
+              <div class="ks-body">
+                <span class="ks-tag">Plumbing</span>
+                <h3>Plumbing Solutions</h3>
+                <div class="ks-dots">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+                <div class="ks-slider">
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Plumbing System Design &amp; Engineering</b
+                      ><span
+                        >Calculation-led design of water supply, drainage and
+                        sanitation for the whole building.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Complete plumbing design from demand calculation to riser
+                      diagrams, sized for steady pressure, safe drainage and
+                      code compliance.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Water demand and storage calculation</li>
+                      <li>Riser diagrams and pipe sizing</li>
+                      <li>Drainage, vent and fixture layouts</li>
+                      <li>Specifications, schedules and BOQ</li>
+                    </ul>
+                    <a
+                      href="./plumbing/plumb-system-design.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Water Supply &amp; Distribution</b
+                      ><span
+                        >Cold and hot water from sump to tank to tap, sized for
+                        steady pressure on every floor.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Reliable cold and hot water distribution from sump to tank
+                      to tap, sized for steady pressure across every floor.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Overhead and underground tanks</li>
+                      <li>Pressure-balanced distribution</li>
+                      <li>Hot water systems</li>
+                      <li>Leak and pressure testing</li>
+                    </ul>
+                    <a
+                      href="./plumbing/plumb-water-supply.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Drainage &amp; Sanitation Systems</b
+                      ><span
+                        >Soil, waste, vent and storm water drainage that carries
+                        waste away safely.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Soil, waste, vent and storm water drainage designed for
+                      free flow, odour-free spaces and safe disposal.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Soil, waste and vent stacks</li>
+                      <li>Storm water drainage</li>
+                      <li>Traps, inspection chambers and manholes</li>
+                      <li>Basement sump and pumped drainage</li>
+                    </ul>
+                    <a
+                      href="./plumbing/plumb-drainage-sanitation.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Sewage Treatment Plants (STP)</b
+                      ><span
+                        >Biological treatment plants that clean wastewater for
+                        safe discharge and reuse.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Sewage treatment plants that clean wastewater to discharge
+                      norms and supply treated water for flushing and gardening.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>MBBR, SBR and extended aeration plants</li>
+                      <li>Treated water for flushing and landscaping</li>
+                      <li>Discharge norm compliance</li>
+                      <li>Sludge handling and odour control</li>
+                    </ul>
+                    <a href="./plumbing/plumb-stp.html" class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Water-Efficient Plumbing Solutions</b
+                      ><span
+                        >Low-flow fixtures, metering, greywater reuse and leak
+                        control that cut water use.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Fixtures, controls and reuse systems that cut water
+                      consumption without affecting comfort or hygiene.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Low-flow and dual-flush fixtures</li>
+                      <li>Sub-metering and leak detection</li>
+                      <li>Greywater and treated water reuse</li>
+                      <li>Pressure management</li>
+                    </ul>
+                    <a
+                      href="./plumbing/plumb-water-efficiency.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Rainwater Harvesting &amp; Reuse</b
+                      ><span
+                        >Rooftop collection, filtration, storage and groundwater
+                        recharge systems.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Rooftop collection, filtration and recharge systems that
+                      cut water bills and keep groundwater levels healthy.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Rooftop collection network</li>
+                      <li>Filtration and storage</li>
+                      <li>Recharge pits and bore wells</li>
+                      <li>Reuse for flushing and landscaping</li>
+                    </ul>
+                    <a
+                      href="./plumbing/plumb-rainwater-harvesting.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                  <div class="ks-slide">
+                    <div class="ks-head">
+                      <b>Testing, Commissioning &amp; Performance Validation</b
+                      ><span
+                        >Tests and checks that prove plumbing systems are
+                        leak-free, safe and perform as designed.</span
+                      >
+                    </div>
+                    <p class="ks-desc">
+                      Pressure, flow and water quality tests that confirm
+                      plumbing systems are leak-free, safe and ready for use.
+                    </p>
+                    <ul class="ks-feat">
+                      <li>Hydrostatic and drainage tests</li>
+                      <li>Flushing and disinfection</li>
+                      <li>Pump and pressure checks</li>
+                      <li>Water quality and STP validation</li>
+                    </ul>
+                    <a
+                      href="./plumbing/plumb-testing-commissioning.html"
+                      class="ks-learn"
+                      >Learn more <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                </div>
+                <button
+                  class="ks-more"
+                  type="button"
+                  onclick="this.closest('.ks-card').classList.toggle('open')"
+                >
+                  Read more <i class="fas fa-chevron-down"></i>
+                </button>
+                <!-- <a
+                  href="contact-us.html"
+                  class="ks-go"
+                  aria-label="Enquire about Plumbing"
+                  ><i class="fas fa-arrow-right"></i
+                ></a> -->
+              </div>
+              <div class="ks-img">
+                <img
+                  src="IMAGES/plumb-design.jpg"
+                  alt="Plumbing System Design &amp; Engineering"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/plumbing.png';
+                  "
+                />
+                <img
+                  src="IMAGES/plumb-supply.jpg"
+                  alt="Water Supply &amp; Distribution"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/plumbing.png';
+                  "
+                />
+                <img
+                  src="IMAGES/plumb-drainage.jpg"
+                  alt="Drainage &amp; Sanitation Systems"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/plumbing.png';
+                  "
+                />
+                <img
+                  src="IMAGES/plumb-stp.jpg"
+                  alt="Sewage Treatment Plants (STP)"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/plumbing.png';
+                  "
+                />
+                <img
+                  src="IMAGES/plumb-efficiency.jpg"
+                  alt="Water-Efficient Plumbing Solutions"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/plumbing.png';
+                  "
+                />
+                <img
+                  src="IMAGES/plumb-rain.jpg"
+                  alt="Rainwater Harvesting &amp; Reuse"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/plumbing.png';
+                  "
+                />
+                <img
+                  src="IMAGES/plumb-testing.jpg"
+                  alt="Testing, Commissioning &amp; Performance Validation"
+                  onerror="
+                    this.onerror = null;
+                    this.src = 'IMAGES/plumbing.png';
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="k-sec k-cta">
+        <div class="k-in">
+          <div>
+            <h2>Planning a project? Request a proposal.</h2>
+            <p>
+              Tell us what you are building and our engineers will respond with
+              a clear scope and next steps.
             </p>
-            <ul class="feat-list">
-              <li class="feat-item">Mechanical System Design & Engineering</li>
-              <li class="feat-item">Energy-Efficient Mechanical Solutions</li>
-              <li class="feat-item">Pumping Systems & Piping Infrastructure</li>
-              <li class="feat-item">Fire Protection & Suppression Systems</li>
-              <li class="feat-item">
-                Equipment Selection & System Integration
-              </li>
-              <li class="feat-item">
-                System Modernisation & Performance Upgrades
-              </li>
-            </ul>
-            <a href="contact-us.html" class="btn-sky"
-              >Enquire About Mechanical <i class="fas fa-arrow-right"></i
-            ></a>
+          </div>
+          <div class="k-cta-btns">
+            <a href="contact-us.html" class="k-btn is-brand"
+              >Request a proposal</a
+            >
+            <a href="our_delivery_process.html" class="k-btn is-ghost"
+              >Our process</a
+            >
           </div>
         </div>
-        <div class="svc-row rv">
-          <div
-            class="svc-visual"
-            style="
-              background: linear-gradient(135deg, #fef9c3 0%, #fefce8 100%);
-            "
-          >
-            <img src="IMAGES/elctrical_.png" alt="Electrical" />
-          </div>
-          <div class="svc-content" style="padding-left: 72px">
-            <div class="svc-ico-wrap">
-              <div class="svc-ico icon-tile yellow">
-                <i class="fas fa-bolt"></i>
-              </div>
+      </section>
+    </main>
 
-              <h2 class="svc-name">Electrical Works</h2>
-            </div>
-
-            <p class="svc-desc">
-              Intelligent electrical solutions engineered to provide dependable
-              power, exceptional system integrity, and efficient performance.
-              From load planning and distribution to lighting and automation,
-              every system is designed for operational reliability and long-term
-              value.
-            </p>
-            <ul class="feat-list">
-              <li class="feat-item">
-                Electrical System Design & Load Planning
-              </li>
-              <li class="feat-item">LV Power Distribution Systems</li>
-              <li class="feat-item">Lighting Design & Control Solutions</li>
-              <li class="feat-item">Emergency Power & Backup Systems</li>
-              <li class="feat-item">BMS, Controls & Automation Integration</li>
-              <li class="feat-item">
-                Testing, Commissioning & Compliance Verification
-              </li>
-            </ul>
-            <a href="contact-us.html" class="btn-sky"
-              >Enquire About Electrical <i class="fas fa-arrow-right"></i
-            ></a>
-          </div>
-        </div>
-        <div class="svc-row reverse rv">
-          <div
-            class="svc-visual"
-            style="
-              background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            "
-          >
-            <img src="IMAGES/plumbing.png" alt="Plumbing" />
-          </div>
-          <div class="svc-content" style="padding-right: 72px">
-            <div class="svc-ico-wrap">
-              <div class="svc-ico icon-tile sky">
-                <i class="fas fa-wrench"></i>
-              </div>
-
-              <h2 class="svc-name">Plumbing Solutions</h2>
-            </div>
-
-            <p class="svc-desc">
-              High-performance plumbing systems designed to ensure efficient
-              water management, superior hygiene, and dependable operation. From
-              system design and distribution to drainage and conservation, every
-              solution is engineered for lasting performance and lifecycle
-              value.
-            </p>
-            <ul class="feat-list">
-              <li class="feat-item">Plumbing System Design & Engineering</li>
-              <li class="feat-item">Water Supply & Distribution Systems</li>
-              <li class="feat-item">Drainage, Sewerage & Sanitation Systems</li>
-              <li class="feat-item">Water-Efficient Plumbing Solutions</li>
-              <li class="feat-item">Rainwater Harvesting & Reuse Systems</li>
-              <li class="feat-item">
-                Testing, Commissioning & Performance Validation
-              </li>
-            </ul>
-            <a href="contact-us.html" class="btn-sky"
-              >Enquire About Plumbing <i class="fas fa-arrow-right"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="services">
-      <div class="wrap">
-        <div class="svc-grid">
-          <div class="svc-card rv">
-            <div class="svc-card-body">
-              <span class="svc-tag">HVAC</span>
-              <h3>HVAC Systems</h3>
-              <div class="svc-dots"><i></i><i></i><i></i></div>
-              <div class="svc-slider">
-                <div class="svc-slide">
-                  <div class="svc-head"><b>VRF / VRV Systems</b><span>Multi-zone cooling for offices and hotels.</span></div>
-                  <p class="svc-card-desc">Variable refrigerant flow systems that cool many zones independently from one outdoor unit, cutting energy use while keeping every room comfortable.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">Multi-zone temperature control</li>
-                    <li class="feat-item">Inverter-driven energy savings</li>
-                    <li class="feat-item">Compact outdoor footprint</li>
-                    <li class="feat-item">Easy zone-wise expansion</li>
-                  </ul>
-                </div>
-                <div class="svc-slide">
-                  <div class="svc-head"><b>Chilled Water Plants</b><span>Central plant design for large campuses.</span></div>
-                  <p class="svc-card-desc">Central chiller plants with pumps, cooling towers and AHUs, sized for large campuses and built for long service life and efficient part-load operation.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">Air and water-cooled chillers</li>
-                    <li class="feat-item">Primary and secondary pumping</li>
-                    <li class="feat-item">Cooling tower integration</li>
-                    <li class="feat-item">BMS-based plant optimisation</li>
-                  </ul>
-                </div>
-                <div class="svc-slide">
-                  <div class="svc-head"><b>Ducted Split Units</b><span>Concealed cooling for retail and clinics.</span></div>
-                  <p class="svc-card-desc">Concealed ducted units that give even air distribution with a clean ceiling finish, ideal for showrooms, clinics and small offices.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">Concealed ceiling installation</li>
-                    <li class="feat-item">Even air distribution</li>
-                    <li class="feat-item">Low operating noise</li>
-                    <li class="feat-item">Fresh-air provision</li>
-                  </ul>
-                </div>
-              </div>
-              <button
-                class="svc-more"
-                onclick="this.closest('.svc-card').classList.toggle('open')"
-              >
-                Read more <i class="fas fa-chevron-down"></i>
-              </button>
-              <a
-                href="contact-us.html"
-                class="svc-go"
-                aria-label="Enquire about HVAC"
-                ><i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-            <div class="svc-card-img">
-              <img src="IMAGES/hvac-vrf.jpg" alt="VRF / VRV Systems" />
-              <img src="IMAGES/hvac-chiller.jpg" alt="Chilled Water Plants" />
-              <img src="IMAGES/hvac-ducted.jpg" alt="Ducted Split Units" />
-            </div>
-          </div>
-
-          <div class="svc-card rv">
-            <div class="svc-card-body">
-              <span class="svc-tag green">Mechanical</span>
-              <h3>Mechanical Engineering</h3>
-              <div class="svc-dots"><i></i><i></i><i></i></div>
-              <div class="svc-slider">
-                <div class="svc-slide">
-                  <div class="svc-head"><b>Pumping Stations</b><span>Booster and transfer pump skids.</span></div>
-                  <p class="svc-card-desc">Skid-mounted booster and transfer pump systems engineered for steady pressure, easy maintenance and reliable round-the-clock duty.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">Duty and standby pump sets</li>
-                    <li class="feat-item">VFD-based pressure control</li>
-                    <li class="feat-item">Vibration-free skid design</li>
-                    <li class="feat-item">Factory pre-tested units</li>
-                  </ul>
-                </div>
-                <div class="svc-slide">
-                  <div class="svc-head"><b>Fire Hydrant Network</b><span>Wet riser and sprinkler systems.</span></div>
-                  <p class="svc-card-desc">Complete fire protection networks covering hydrants, wet risers and sprinklers, designed and tested to meet statutory fire safety norms.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">Hydrant and wet riser systems</li>
-                    <li class="feat-item">Automatic sprinkler layouts</li>
-                    <li class="feat-item">Jockey and main fire pumps</li>
-                    <li class="feat-item">Hydraulic calculation and testing</li>
-                  </ul>
-                </div>
-                <div class="svc-slide">
-                  <div class="svc-head"><b>Piping & Valves</b><span>Pre-insulated pipework and valve assemblies.</span></div>
-                  <p class="svc-card-desc">Precision pipework with insulated runs and properly rated valve assemblies for chilled water, hot water and process lines.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">MS, GI and HDPE pipework</li>
-                    <li class="feat-item">Thermal insulation and cladding</li>
-                    <li class="feat-item">Isolation and balancing valves</li>
-                    <li class="feat-item">Pressure testing and flushing</li>
-                  </ul>
-                </div>
-              </div>
-              <button
-                class="svc-more"
-                onclick="this.closest('.svc-card').classList.toggle('open')"
-              >
-                Read more <i class="fas fa-chevron-down"></i>
-              </button>
-              <a
-                href="contact-us.html"
-                class="svc-go"
-                aria-label="Enquire about Mechanical"
-                ><i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-            <div class="svc-card-img">
-              <img src="IMAGES/mech-pump.jpg" alt="Pumping Stations" />
-              <img src="IMAGES/mech-fire.jpg" alt="Fire Hydrant Network" />
-              <img src="IMAGES/mech-piping.jpg" alt="Piping & Valves" />
-            </div>
-          </div>
-
-          <div class="svc-card rv">
-            <div class="svc-card-body">
-              <span class="svc-tag yellow">Electrical</span>
-              <h3>Electrical Works</h3>
-              <div class="svc-dots"><i></i><i></i><i></i></div>
-              <div class="svc-slider">
-                <div class="svc-slide">
-                  <div class="svc-head"><b>LV Panels</b><span>MCC, PCC and distribution boards.</span></div>
-                  <p class="svc-card-desc">Custom-built low-voltage panels that distribute power safely and reliably, with clear labelling and easy access for maintenance.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">MCC and PCC panels</li>
-                    <li class="feat-item">Distribution boards</li>
-                    <li class="feat-item">Metering and protection</li>
-                    <li class="feat-item">Type-tested components</li>
-                  </ul>
-                </div>
-                <div class="svc-slide">
-                  <div class="svc-head"><b>Lighting Control</b><span>LED layouts with DALI and smart dimming.</span></div>
-                  <p class="svc-card-desc">Energy-efficient LED lighting with smart dimming and scheduling, designed for comfort, glare control and lower power bills.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">LED layout and lux design</li>
-                    <li class="feat-item">DALI and smart dimming</li>
-                    <li class="feat-item">Occupancy and daylight sensors</li>
-                    <li class="feat-item">Scene and schedule control</li>
-                  </ul>
-                </div>
-                <div class="svc-slide">
-                  <div class="svc-head"><b>DG & UPS Backup</b><span>Seamless emergency power changeover.</span></div>
-                  <p class="svc-card-desc">Backup power systems that take over within seconds of a mains failure, keeping critical loads running without interruption.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">DG set sizing and installation</li>
-                    <li class="feat-item">Auto mains failure panels</li>
-                    <li class="feat-item">Online UPS for critical loads</li>
-                    <li class="feat-item">Load testing and commissioning</li>
-                  </ul>
-                </div>
-              </div>
-              <button
-                class="svc-more"
-                onclick="this.closest('.svc-card').classList.toggle('open')"
-              >
-                Read more <i class="fas fa-chevron-down"></i>
-              </button>
-              <a
-                href="contact-us.html"
-                class="svc-go"
-                aria-label="Enquire about Electrical"
-                ><i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-            <div class="svc-card-img">
-              <img src="IMAGES/elec-panel.jpg" alt="LV Panels" />
-              <img src="IMAGES/elec-lighting.jpg" alt="Lighting Control" />
-              <img src="IMAGES/elec-dg.jpg" alt="DG & UPS Backup" />
-            </div>
-          </div>
-
-          <div class="svc-card rv">
-            <div class="svc-card-body">
-              <span class="svc-tag indigo">Plumbing</span>
-              <h3>Plumbing Solutions</h3>
-              <div class="svc-dots"><i></i><i></i><i></i></div>
-              <div class="svc-slider">
-                <div class="svc-slide">
-                  <div class="svc-head"><b>Water Supply</b><span>Overhead and underground distribution.</span></div>
-                  <p class="svc-card-desc">Reliable cold and hot water distribution from sump to tank to tap, sized for steady pressure across every floor.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">Overhead and underground tanks</li>
-                    <li class="feat-item">Pressure-balanced distribution</li>
-                    <li class="feat-item">Hot water systems</li>
-                    <li class="feat-item">Leak and pressure testing</li>
-                  </ul>
-                </div>
-                <div class="svc-slide">
-                  <div class="svc-head"><b>Drainage & STP</b><span>Sewerage, sanitation and treatment plants.</span></div>
-                  <p class="svc-card-desc">Soil, waste and storm drainage with sewage treatment plants that meet discharge norms and support water reuse.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">Soil, waste and vent stacks</li>
-                    <li class="feat-item">Storm water drainage</li>
-                    <li class="feat-item">Sewage treatment plants</li>
-                    <li class="feat-item">Treated water for reuse</li>
-                  </ul>
-                </div>
-                <div class="svc-slide">
-                  <div class="svc-head"><b>Rainwater Harvesting</b><span>Collection, filtration and reuse systems.</span></div>
-                  <p class="svc-card-desc">Rooftop collection, filtration and recharge systems that cut water bills and keep groundwater levels healthy.</p>
-                  <ul class="feat-list">
-                    <li class="feat-item">Rooftop collection network</li>
-                    <li class="feat-item">Filtration and storage</li>
-                    <li class="feat-item">Recharge pits and bore wells</li>
-                    <li class="feat-item">Reuse for flushing and landscaping</li>
-                  </ul>
-                </div>
-              </div>
-              <button
-                class="svc-more"
-                onclick="this.closest('.svc-card').classList.toggle('open')"
-              >
-                Read more <i class="fas fa-chevron-down"></i>
-              </button>
-              <a
-                href="contact-us.html"
-                class="svc-go"
-                aria-label="Enquire about Plumbing"
-                ><i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-            <div class="svc-card-img">
-              <img src="IMAGES/plumb-supply.jpg" alt="Water Supply" />
-              <img src="IMAGES/plumb-stp.jpg" alt="Drainage & STP" />
-              <img src="IMAGES/plumb-rain.jpg" alt="Rainwater Harvesting" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <kmep-footer></kmep-footer>
+
+    <a
+      class="k-wa"
+      href="https://wa.me/919710439000?text=Hi%20KMEP%2C%20I%27d%20like%20to%20enquire%20about%20your%20MEP%20services."
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat on WhatsApp"
+      ><i class="fab fa-whatsapp"></i
+    ></a>
+
     <script>
-      document.querySelectorAll(".svc-card").forEach((card) => {
-        const slides = card.querySelectorAll(".svc-slide");
-        const dots = card.querySelectorAll(".svc-dots i");
-        const imgs = card.querySelectorAll(".svc-card-img img");
-        let i = 0,
+      document.querySelectorAll(".ks-card").forEach(function (card) {
+        var slides = card.querySelectorAll(".ks-slide");
+        var dots = card.querySelectorAll(".ks-dots i");
+        var imgs = card.querySelectorAll(".ks-img img");
+        var i = 0,
           paused = false;
-        const show = (n) => {
+        function show(n) {
           i = n % slides.length;
-          slides.forEach((s, k) => s.classList.toggle("active", k === i));
-          dots.forEach((d, k) => d.classList.toggle("active", k === i));
-          imgs.forEach((m, k) => m.classList.toggle("active", k === i));
-        };
+          slides.forEach(function (s, k) {
+            s.classList.toggle("active", k === i);
+          });
+          dots.forEach(function (d, k) {
+            d.classList.toggle("active", k === i);
+          });
+          imgs.forEach(function (m, k) {
+            m.classList.toggle("active", k === i);
+          });
+        }
         show(0);
-        card.addEventListener("mouseenter", () => (paused = true));
-        card.addEventListener("mouseleave", () => (paused = false));
-        setInterval(() => !paused && show(i + 1), 3000);
+        card.addEventListener("mouseenter", function () {
+          paused = true;
+        });
+        card.addEventListener("mouseleave", function () {
+          paused = false;
+        });
+        setInterval(function () {
+          if (!paused && !card.classList.contains("open")) show(i + 1);
+        }, 3000);
       });
+
+      function openFromHash() {
+        var c = document.getElementById(location.hash.slice(1));
+        if (c && c.classList.contains("ks-card")) c.classList.add("open");
+      }
+      openFromHash();
+      window.addEventListener("hashchange", openFromHash);
     </script>
   </body>
 </html>

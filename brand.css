@@ -1,0 +1,128 @@
+/* ═══════════ KMEP BRAND — everything follows the purple logo ═══════════ */
+:root {
+  --navy:   #2a1135;
+  --blue:   #722a8a;
+  --blue2:  #8e3aa8;
+  --sky:    #a352c4;
+  --teal:   #c78be0;              /* was green, now soft lilac */
+  --off:    #f7f6f9;              /* neutral soft grey */
+  --off2:   #efedf3;
+  --border: #e8e5ed;
+  --sh:     0 2px 20px rgba(42, 17, 53, 0.07);
+  --sh2:    0 10px 50px rgba(42, 17, 53, 0.14);
+
+  /* contact-page dark theme → aubergine */
+  --fx-bg:    #1a0a24;
+  --fx-bg2:   #2a1135;
+  --fx-card:  rgba(255, 255, 255, 0.05);
+  --fx-line:  rgba(199, 139, 224, 0.22);
+  --fx-cyan:  #d9a8ee;
+  --fx-text:  #f3e9f8;
+  --fx-muted: #b9a3c7;
+}
+
+/* buttons */
+.btn-sky { background: linear-gradient(135deg, var(--blue), var(--sky)); }
+.btn-sky:hover {
+  background: linear-gradient(135deg, #5f2275, var(--blue2));
+  box-shadow: 0 12px 32px rgba(114, 42, 138, 0.35);
+}
+.hero-btns .btn-outline:hover { border-color: rgba(114, 42, 138, 0.3); }
+
+/* ── HOME PAGE ── */
+.hbg-glow {
+  background:
+    radial-gradient(circle 260px at 15% 20%, rgba(114, 42, 138, 0.10) 0%, transparent 70%),
+    radial-gradient(circle 300px at 85% 15%, rgba(163, 82, 196, 0.12) 0%, transparent 70%),
+    radial-gradient(circle 240px at 75% 70%, rgba(199, 139, 224, 0.12) 0%, transparent 70%),
+    radial-gradient(circle 200px at 10% 80%, rgba(114, 42, 138, 0.08) 0%, transparent 70%);
+}
+.hbg-photo::before {
+  background: linear-gradient(100deg, var(--off) 0%, rgba(247, 243, 250, 0.85) 12%, rgba(247, 243, 250, 0.15) 32%, transparent 55%);
+}
+/* soft purple tint over the rooftop photo so it blends with the brand */
+.hbg-photo::after {
+  background: linear-gradient(135deg, rgba(114, 42, 138, 0.20) 0%, rgba(42, 17, 53, 0.22) 100%);
+}
+@keyframes blinkanim {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(163, 82, 196, 0.5); }
+  50%      { opacity: 0.4; box-shadow: 0 0 0 6px rgba(163, 82, 196, 0); }
+}
+
+/* hero heading + tagline */
+.hero-h1 { letter-spacing: -1.5px; max-width: 780px; }
+.hero-h1 em.hero-tagline {
+  background: linear-gradient(90deg, #722a8a, #a352c4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(20px, 3vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  text-wrap: balance;
+}
+
+/* icon tiles + thumbs: blue tint → lilac tint */
+.p-ico, .svc-ico, .wc-ico { background: linear-gradient(135deg, #f1e1f7, #e2c4ee); }
+.svc-thumb { background: linear-gradient(135deg, #f1e1f7 0%, #faf5fd 100%); }
+.wc:hover .wc-num { color: #e9d3f3; }
+
+/* hovers and shadows */
+.pillar:hover   { border-color: rgba(114, 42, 138, 0.28); box-shadow: 0 6px 28px rgba(114, 42, 138, 0.10); }
+.svc-card:hover { border-color: rgba(114, 42, 138, 0.25); box-shadow: 0 20px 56px rgba(42, 17, 53, 0.14); }
+.chip:hover     { box-shadow: 0 4px 16px rgba(114, 42, 138, 0.12); }
+.mq-track a:hover { border-color: rgba(114, 42, 138, 0.25); }
+
+/* side nav dots */
+.dot            { background: rgba(42, 17, 53, 0.2); }
+.dot:hover      { background: rgba(42, 17, 53, 0.45); }
+.dot.on         { background: var(--blue2); box-shadow: 0 0 0 3px rgba(114, 42, 138, 0.2); }
+
+/* gallery overlays */
+.hv { box-shadow: 0 0 0 100vmax rgba(26, 10, 36, 0.55), 0 30px 80px rgba(0, 0, 0, 0.45); }
+.lb { background: rgba(26, 10, 36, 0.94); }
+.g-cap { background: linear-gradient(transparent, rgba(42, 17, 53, 0.85)); }
+
+/* ── INNER PAGE HERO (contact etc.) ── */
+.page-hero {
+  background:
+    radial-gradient(ellipse at 20% 30%, #4a1c63 0%, transparent 55%),
+    linear-gradient(135deg, #1a0a24 0%, #2e1240 55%, #4a1c63 100%);
+}
+.ph-glow {
+  background:
+    radial-gradient(circle 260px at 85% 20%, rgba(163, 82, 196, 0.28) 0%, transparent 70%),
+    radial-gradient(circle 220px at 10% 85%, rgba(114, 42, 138, 0.35) 0%, transparent 70%);
+}
+.ph-eyebrow { color: #eed9f7; }
+.ph-sub { color: #cdb8da; }
+.ph-line2 { background: linear-gradient(90deg, #e3b8f2, #ffffff); -webkit-background-clip: text; background-clip: text; }
+.ph-waves stop:nth-child(1) { stop-color: #c78be0; }
+.ph-waves stop:nth-child(2) { stop-color: #c78be0; }
+.ph-waves stop:nth-child(3) { stop-color: #722a8a; }
+
+/* ── CONTACT PAGE ── */
+#map-section { background: linear-gradient(180deg, var(--fx-bg2) 0%, #1a0a24 100%); }
+.ci-card:hover {
+  background: rgba(199, 139, 224, 0.08);
+  border-color: rgba(199, 139, 224, 0.5);
+  box-shadow: 0 0 28px rgba(163, 82, 196, 0.18);
+}
+.ci-ico { background: linear-gradient(135deg, rgba(114, 42, 138, 0.45), rgba(163, 82, 196, 0.28)); }
+.office-chip:hover { box-shadow: 0 0 18px rgba(163, 82, 196, 0.2); }
+.form-group label { color: #d8bfe8; }
+.form-group input,
+.form-group select,
+.form-group textarea { background: rgba(26, 10, 36, 0.55); }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(216, 191, 232, 0.5); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { box-shadow: 0 0 0 3px rgba(199, 139, 224, 0.2); }
+.form-group select option { background: #2a1135; color: #fff; }
+.form-submit { background: linear-gradient(90deg, #722a8a, #a352c4); }
+.form-submit:hover {
+  background: linear-gradient(90deg, #5f2275, #c78be0);
+  box-shadow: 0 10px 32px rgba(163, 82, 196, 0.35);
+}
+.map-frame { box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(163, 82, 196, 0.1); }
