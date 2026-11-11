@@ -1092,23 +1092,13 @@
                     ></a>
                   </div>
                 </div>
-                <div class="ks-ctl">
-                  <button
-                    class="ks-more"
-                    type="button"
-                    onclick="this.closest('.ks-card').classList.toggle('open')"
-                  >
-                    Read more <i class="fas fa-chevron-down"></i>
-                  </button>
-                  <span class="ks-nav">
-                    <button type="button" class="ks-prev" aria-label="Previous">
-                      <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button type="button" class="ks-next" aria-label="Next">
-                      <i class="fas fa-chevron-right"></i>
-                    </button>
-                  </span>
-                </div>
+                <button
+                  class="ks-more"
+                  type="button"
+                  onclick="this.closest('.ks-card').classList.toggle('open')"
+                >
+                  Read more <i class="fas fa-chevron-down"></i>
+                </button>
                 <!-- <a
                   href="contact-us.html"
                   class="ks-go"
@@ -2051,18 +2041,7 @@
             resumeAt = Date.now() + 6000;
           });
         });
-        var prev = card.querySelector(".ks-prev");
-        var next = card.querySelector(".ks-next");
-        if (prev)
-          prev.addEventListener("click", function () {
-            show((i - 1 + slides.length) % slides.length);
-            resumeAt = Date.now() + 6000;
-          });
-        if (next)
-          next.addEventListener("click", function () {
-            show(i + 1);
-            resumeAt = Date.now() + 6000;
-          });
+ 
         card.addEventListener("mouseenter", function () {
           paused = true;
         });
