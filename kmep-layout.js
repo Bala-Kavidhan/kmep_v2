@@ -141,7 +141,7 @@ class KmepFooter extends HTMLElement {
   kmep-footer { display:block; }
   kmep-footer *, kmep-footer *::before, kmep-footer *::after { box-sizing:border-box; margin:0; padding:0; }
   .kf { background:#2a1038; color:#d9c6e6; font-family:"Outfit",sans-serif; }
-  .kf-in { max-width:1280px; margin:0 auto; padding:64px 32px 40px; display:grid; grid-template-columns:1.5fr 1fr 1fr 1.4fr; gap:48px; }
+  .kf-in { max-width:1240px; margin:0 auto; padding:44px 32px 28px; display:grid; grid-template-columns:1.5fr 1fr 1fr 1.4fr; gap:48px; }
   .kf-brand { display:flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:16px; }
   .kf-brand img { height:44px; width:auto; background:#f3f0e9; border-radius:8px; padding:4px; }
   .kf-brand b { display:block; font-size:20px; letter-spacing:2px; color:#fff; line-height:1; }
@@ -156,7 +156,7 @@ class KmepFooter extends HTMLElement {
   .kf-ct div { display:flex; gap:12px; align-items:flex-start; font-size:14.5px; line-height:1.6; }
   .kf-ct i { color:#e3b8f5; width:16px; margin-top:4px; flex-shrink:0; text-align:center; }
   .kf-bar { border-top:1px solid rgba(227,184,245,.18); }
-  .kf-bar div { max-width:1280px; margin:0 auto; padding:20px 32px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:13px; color:#b89dc8; }
+  .kf-bar div { max-width:1240px; margin:0 auto; padding:16px 32px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:13px; color:#b89dc8; }
   @media (max-width:1000px) { .kf-in { grid-template-columns:1fr 1fr; gap:36px; } }
   @media (max-width:560px) {
     .kf-in { grid-template-columns:1fr 1fr; gap:24px 20px; padding:32px 20px 20px; }
@@ -208,5 +208,3 @@ class KmepFooter extends HTMLElement {
   }
 }
 customElements.define("kmep-footer", KmepFooter);
-
- 

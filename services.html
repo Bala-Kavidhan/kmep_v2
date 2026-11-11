@@ -237,6 +237,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
+        padding: 4px 0;
       }
       .ks-dots i {
         width: 6px;
@@ -1091,13 +1092,23 @@
                     ></a>
                   </div>
                 </div>
-                <button
-                  class="ks-more"
-                  type="button"
-                  onclick="this.closest('.ks-card').classList.toggle('open')"
-                >
-                  Read more <i class="fas fa-chevron-down"></i>
-                </button>
+                <div class="ks-ctl">
+                  <button
+                    class="ks-more"
+                    type="button"
+                    onclick="this.closest('.ks-card').classList.toggle('open')"
+                  >
+                    Read more <i class="fas fa-chevron-down"></i>
+                  </button>
+                  <span class="ks-nav">
+                    <button type="button" class="ks-prev" aria-label="Previous">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button type="button" class="ks-next" aria-label="Next">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </span>
+                </div>
                 <!-- <a
                   href="contact-us.html"
                   class="ks-go"
@@ -2040,6 +2051,18 @@
             resumeAt = Date.now() + 6000;
           });
         });
+        var prev = card.querySelector(".ks-prev");
+        var next = card.querySelector(".ks-next");
+        if (prev)
+          prev.addEventListener("click", function () {
+            show((i - 1 + slides.length) % slides.length);
+            resumeAt = Date.now() + 6000;
+          });
+        if (next)
+          next.addEventListener("click", function () {
+            show(i + 1);
+            resumeAt = Date.now() + 6000;
+          });
         card.addEventListener("mouseenter", function () {
           paused = true;
         });
@@ -2047,12 +2070,7 @@
           paused = false;
         });
         setInterval(function () {
-          if (
-            !paused &&
-            !card.classList.contains("open") &&
-            Date.now() >= resumeAt
-          )
-            show(i + 1);
+          if (!paused && Date.now() >= resumeAt) show(i + 1);
         }, 3000);
       });
 
