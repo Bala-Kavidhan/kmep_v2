@@ -303,6 +303,7 @@
         margin: 0;
         display: -webkit-box;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
@@ -348,6 +349,7 @@
       }
       .ks-card.open .ks-desc {
         -webkit-line-clamp: unset;
+        line-clamp: unset;
         display: block;
       }
       .ks-card.open .ks-feat {
@@ -412,6 +414,188 @@
       }
       .ks-img img.active {
         opacity: 1;
+      }
+
+      /* ── CARD POPUP ── */
+      .ks-card {
+        position: relative;
+        cursor: pointer;
+      }
+      .ks-card .ks-more,
+      .ks-card .ks-learn,
+      .ks-card .ks-dots i {
+        cursor: pointer;
+      }
+      .ks-card:focus-visible {
+        outline: 2px solid #7b2d9b;
+        outline-offset: 3px;
+      }
+      .ks-card::before {
+        content: "View all services";
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 2;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: #7b2d9b;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        opacity: 0;
+        transform: translateY(-4px);
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+        pointer-events: none;
+      }
+      .ks-card:hover::before,
+      .ks-card:focus-visible::before {
+        opacity: 1;
+        transform: none;
+      }
+      .ksm {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgba(42, 16, 56, 0.55);
+        backdrop-filter: blur(3px);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.25s,
+          visibility 0.25s;
+      }
+      .ksm.on {
+        opacity: 1;
+        visibility: visible;
+      }
+      .ksm-box {
+        width: min(860px, 100%);
+        max-height: min(80vh, 720px);
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(42, 16, 56, 0.35);
+        transform: translateY(14px) scale(0.98);
+        transition: transform 0.25s;
+      }
+      .ksm.on .ksm-box {
+        transform: none;
+      }
+      .ksm-hd {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 22px 26px 16px;
+        border-bottom: 1px solid #e4e0d8;
+      }
+      .ksm-hd h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #2a1038;
+        margin: 10px 0 2px;
+      }
+      .ksm-hd p {
+        margin: 0;
+        font-size: 13.5px;
+        color: #6b6475;
+      }
+      .ksm-x {
+        flex-shrink: 0;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1px solid #e4e0d8;
+        background: #f4f1ea;
+        color: #2a1038;
+        font-size: 15px;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          color 0.25s;
+      }
+      .ksm-x:hover {
+        background: #7b2d9b;
+        color: #fff;
+      }
+      .ksm-list {
+        list-style: none;
+        margin: 0;
+        padding: 18px 26px 26px;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .ksm-list a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 100%;
+        padding: 14px 16px;
+        border: 1px solid #e4e0d8;
+        border-radius: 12px;
+        text-decoration: none;
+        transition:
+          border-color 0.25s,
+          background 0.25s,
+          box-shadow 0.25s;
+      }
+      .ksm-list a:hover,
+      .ksm-list a:focus-visible {
+        border-color: #b57edc;
+        background: #faf5fd;
+        box-shadow: 0 8px 20px rgba(74, 20, 100, 0.1);
+        outline: none;
+      }
+      .ksm-list b {
+        display: block;
+        font-size: 14.5px;
+        color: #2a1038;
+        line-height: 1.35;
+      }
+      .ksm-list span {
+        display: block;
+        margin-top: 2px;
+        font-size: 12.5px;
+        color: #6b6475;
+        line-height: 1.5;
+      }
+      .ksm-list i {
+        margin-left: auto;
+        flex-shrink: 0;
+        color: #7b2d9b;
+        font-size: 12px;
+      }
+      body.ksm-lock {
+        overflow: hidden;
+      }
+      @media (max-width: 640px) {
+        .ksm {
+          padding: 12px;
+        }
+        .ksm-hd {
+          padding: 18px 18px 14px;
+        }
+        .ksm-list {
+          grid-template-columns: 1fr;
+          padding: 14px 18px 20px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .ksm,
+        .ksm-box,
+        .ks-card::before {
+          transition: none;
+        }
       }
 
       .ks-intro-sec {
@@ -706,7 +890,7 @@
             <h2 class="k-h2">Explore what's inside each discipline</h2>
             <p class="k-lead">
               Browse the services within each discipline. Click “Read more” for
-              details.
+              details, or click any card to see all its services at a glance.
             </p>
           </div>
 
@@ -2041,7 +2225,7 @@
             resumeAt = Date.now() + 6000;
           });
         });
- 
+
         card.addEventListener("mouseenter", function () {
           paused = true;
         });
@@ -2051,6 +2235,94 @@
         setInterval(function () {
           if (!paused && Date.now() >= resumeAt) show(i + 1);
         }, 3000);
+      });
+
+      /* ── Card popup ── */
+      var ksm = document.createElement("div");
+      ksm.className = "ksm";
+      ksm.innerHTML =
+        '<div class="ksm-box" role="dialog" aria-modal="true" aria-labelledby="ksm-t">' +
+        '<div class="ksm-hd"><div><span class="ks-tag"></span><h3 id="ksm-t"></h3><p></p></div>' +
+        '<button class="ksm-x" type="button" aria-label="Close"><i class="fas fa-xmark"></i></button></div>' +
+        '<ul class="ksm-list"></ul></div>';
+      document.body.appendChild(ksm);
+      var ksmTag = ksm.querySelector(".ks-tag"),
+        ksmTitle = ksm.querySelector("h3"),
+        ksmSub = ksm.querySelector(".ksm-hd p"),
+        ksmList = ksm.querySelector(".ksm-list"),
+        ksmClose = ksm.querySelector(".ksm-x"),
+        ksmLast = null;
+
+      function ksmOpen(card) {
+        ksmLast = card;
+        ksmTag.textContent = card.querySelector(".ks-tag").textContent.trim();
+        ksmTitle.textContent = card.querySelector("h3").textContent.trim();
+        ksmList.textContent = "";
+        var n = 0;
+        card.querySelectorAll(".ks-slide").forEach(function (s) {
+          var a = s.querySelector(".ks-learn");
+          if (!a) return;
+          n++;
+          var li = document.createElement("li"),
+            link = document.createElement("a"),
+            box = document.createElement("div"),
+            b = document.createElement("b"),
+            sp = document.createElement("span"),
+            ic = document.createElement("i");
+          link.href = a.getAttribute("href");
+          b.textContent = s.querySelector(".ks-head b").textContent.trim();
+          sp.textContent = s.querySelector(".ks-head span").textContent.trim();
+          ic.className = "fas fa-arrow-right";
+          box.appendChild(b);
+          box.appendChild(sp);
+          link.appendChild(box);
+          link.appendChild(ic);
+          li.appendChild(link);
+          ksmList.appendChild(li);
+        });
+        ksmSub.textContent = n + " services · select one to open its page";
+        ksmList.scrollTop = 0;
+        ksm.classList.add("on");
+        document.body.classList.add("ksm-lock");
+        ksmClose.focus();
+      }
+      function ksmHide() {
+        ksm.classList.remove("on");
+        document.body.classList.remove("ksm-lock");
+        if (ksmLast) ksmLast.focus({ preventScroll: true });
+      }
+
+      document.querySelectorAll(".ks-card").forEach(function (card) {
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("aria-haspopup", "dialog");
+        card.addEventListener("click", function (e) {
+          if (e.target.closest(".ks-more, .ks-learn, .ks-dots")) return;
+          ksmOpen(card);
+        });
+        card.addEventListener("keydown", function (e) {
+          if (e.target === card && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            ksmOpen(card);
+          }
+        });
+      });
+      ksm.addEventListener("click", function (e) {
+        if (e.target === ksm || e.target.closest(".ksm-x")) ksmHide();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (!ksm.classList.contains("on")) return;
+        if (e.key === "Escape") return ksmHide();
+        if (e.key !== "Tab") return;
+        var f = ksm.querySelectorAll("a[href], button"),
+          first = f[0],
+          last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       });
 
       function openFromHash() {

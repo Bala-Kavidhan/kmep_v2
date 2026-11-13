@@ -4,8 +4,6 @@
    ========================================================== */
 const KMEP = {
   logo: "IMAGES/logo.png",
-  // second logo (Pvt Ltd). Set to null to hide it.
-  logo2: null,
   phone: { label: "+91 91766 70447", href: "tel:+919176670447" },
   email: "rajesh@kmep.co.in",
   whatsapp: "https://wa.me/919710439000",
@@ -28,15 +26,29 @@ const KMEP = {
   ],
 };
 
+const KMEP_FOLDERS = {
+  hvac: "HVAC",
+  mechanical: "Mechanical",
+  electrical: "Electrical",
+  plumbing: "Plumbing",
+};
+
 const kmepPage = () =>
   (location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+const kmepDir = () =>
+  (location.pathname.split("/").slice(-2, -1)[0] || "").toLowerCase();
 
 /* ---------------- HEADER ---------------- */
 class KmepHeader extends HTMLElement {
   connectedCallback() {
     const page = kmepPage();
-    const on = (file) => (page === file ? " is-on" : "");
-    const companyOn = KMEP.company.some(([, f]) => f === page) ? " is-on" : "";
+    const on = (file) => (page === file ? "is-on" : "");
+    const companyOn = KMEP.company.some(([, f]) => f === page) ? "is-on" : "";
+    const servicesOn =
+      page === "services.html" || Object.hasOwn(KMEP_FOLDERS, kmepDir())
+        ? "is-on"
+        : "";
     const dd = KMEP.company.map(([t, f]) => `<a href="${f}">${t}</a>`).join("");
     const sd =
       `<a class="k-all" href="services.html">All Services</a>` +
@@ -84,17 +96,17 @@ class KmepHeader extends HTMLElement {
       <i class="fas fa-bars"></i>
     </button>
     <nav class="k-nav" id="kNav" aria-label="Main">
-      <a href="index.html" class="${on("index.html").trim()}">Home</a>
+      <a href="index.html" class="${on("index.html")}">Home</a>
       <div class="k-dd">
-        <a href="about.html" class="${companyOn.trim()}">Company<i class="fas fa-chevron-down"></i></a>
+        <a href="about.html" class="${companyOn}" aria-haspopup="true">Company<i class="fas fa-chevron-down"></i></a>
         <div class="k-dd-panel">${dd}</div>
       </div>
       <div class="k-dd">
-        <a href="services.html" class="${on("services.html").trim()}">Services<i class="fas fa-chevron-down"></i></a>
+        <a href="services.html" class="${servicesOn}" aria-haspopup="true">Services<i class="fas fa-chevron-down"></i></a>
         <div class="k-dd-panel">${sd}</div>
       </div>
       <a href="index.html#work">Projects</a>
-      <a href="contact-us.html" class="${on("contact-us.html").trim()}">Contact Us</a>
+      <a href="contact-us.html" class="${on("contact-us.html")}">Contact Us</a>
     </nav>
     <a href="contact-us.html" class="k-btn is-brand">Get a quote</a>
   </div>
@@ -102,6 +114,18 @@ class KmepHeader extends HTMLElement {
 
     const burger = this.querySelector("#kBurger");
     const nav = this.querySelector("#kNav");
+
+    // expose live header height so sticky bars / scroll offsets never hardcode it
+    const headerEl = this.querySelector(".k-header");
+    const syncHeight = () =>
+      document.documentElement.style.setProperty(
+        "--k-header-h",
+        `${headerEl.offsetHeight}px`,
+      );
+    syncHeight();
+    if ("ResizeObserver" in window)
+      new ResizeObserver(syncHeight).observe(headerEl);
+    else window.addEventListener("resize", syncHeight);
     burger.addEventListener("click", () => {
       const open = nav.classList.toggle("open");
       burger.setAttribute("aria-expanded", String(open));
@@ -128,7 +152,8 @@ class KmepHeader extends HTMLElement {
     });
   }
 }
-customElements.define("kmep-header", KmepHeader);
+if (!customElements.get("kmep-header"))
+  customElements.define("kmep-header", KmepHeader);
 
 /* ---------------- FOOTER ---------------- */
 class KmepFooter extends HTMLElement {
@@ -207,4 +232,194 @@ class KmepFooter extends HTMLElement {
 </footer>`;
   }
 }
-customElements.define("kmep-footer", KmepFooter);
+
+if (!customElements.get("kmep-footer"))
+  customElements.define("kmep-footer", KmepFooter);
+
+/* ---------------- DETAIL PAGES ---------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  // decorative icons shouldn't be announced by screen readers
+  document
+    .querySelectorAll("i.fas, i.fab, i.far")
+    .forEach((i) => i.setAttribute("aria-hidden", "true"));
+
+  const hero = document.querySelector(".dt-hero");
+  if (!hero) return;
+  buildBreadcrumb(hero);
+  applyHeroImage(hero);
+  buildJumpBar(hero);
+});
+
+function buildBreadcrumb(hero) {
+  const wrap = hero.querySelector(".wrap");
+  if (!wrap || hero.querySelector(".dt-crumb")) return;
+
+  const dir = kmepDir();
+  const h1 = hero.querySelector("h1");
+  const crumb = document.createElement("nav");
+  crumb.className = "dt-crumb";
+  crumb.setAttribute("aria-label", "Breadcrumb");
+
+  const link = (href, text) => {
+    const a = document.createElement("a");
+    a.href = href;
+    a.textContent = text;
+    return a;
+  };
+  const sep = () => document.createTextNode(" › ");
+
+  crumb.append(
+    link("index.html", "Home"),
+    sep(),
+    link("services.html", "Services"),
+  );
+  if (Object.hasOwn(KMEP_FOLDERS, dir)) {
+    crumb.append(sep(), link(`services.html#${dir}`, KMEP_FOLDERS[dir]));
+  }
+  if (h1) {
+    const current = document.createElement("b");
+    current.textContent = h1.textContent;
+    crumb.append(sep(), current);
+  }
+  wrap.prepend(crumb);
+}
+
+function applyHeroImage(hero) {
+  // hero background = the page's overview image
+  const img = document.querySelector(".dt-over img");
+  if (!img) return;
+  const apply = () => {
+    if (!img.naturalWidth) return;
+    hero.style.setProperty("--hero-img", `url("${img.currentSrc || img.src}")`);
+    hero.classList.add("has-img");
+  };
+  if (img.complete) apply();
+  img.addEventListener("load", apply); // also fires after the onerror fallback swap
+}
+
+function buildJumpBar(hero) {
+  const items = [...document.querySelectorAll(".dt-sec")]
+    .map((sec, i) => {
+      const eyebrow = sec.querySelector(".dt-eyebrow");
+      if (!eyebrow) return null;
+      sec.id = sec.id || `sec-${i}`;
+      return { sec, label: eyebrow.textContent.trim(), link: null };
+    })
+    .filter(Boolean);
+  if (items.length < 3) return;
+
+  const nav = document.createElement("nav");
+  nav.className = "dt-nav";
+  nav.setAttribute("aria-label", "On this page");
+  const wrap = document.createElement("div");
+  wrap.className = "wrap";
+
+  // <base href> would send a bare "#id" to the site root, so anchor to this page's own path
+  const page = location.pathname + location.search;
+  items.forEach((item) => {
+    const a = document.createElement("a");
+    a.href = `${page}#${item.sec.id}`;
+    a.textContent = item.label;
+    item.link = a;
+    wrap.append(a);
+  });
+  nav.append(wrap);
+  hero.after(nav);
+
+  let ticking = false;
+  let last = null;
+  let locked = false; // true while a tab-click scroll is in progress
+  let unlockTimer;
+
+  const barBottom = () =>
+    (parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--k-header-h",
+      ),
+    ) || 77) + nav.offsetHeight;
+
+  const setActive = (current) => {
+    items.forEach((item) => {
+      const active = item === current;
+      item.link.classList.toggle("on", active);
+      if (active) item.link.setAttribute("aria-current", "true");
+      else item.link.removeAttribute("aria-current");
+    });
+
+    if (current !== last) {
+      last = current;
+      // keep the active tab visible in the horizontally scrolling bar (mobile)
+      wrap.scrollTo({
+        left:
+          current.link.offsetLeft -
+          (wrap.clientWidth - current.link.offsetWidth) / 2,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const spy = () => {
+    ticking = false;
+    if (locked) return;
+    const offset = barBottom() + 24;
+
+    let current = items[0];
+    items.forEach((item) => {
+      if (item.sec.getBoundingClientRect().top <= offset) current = item;
+    });
+
+    // at the very bottom the last section can't reach the bar, so force it active
+    const atBottom =
+      Math.ceil(window.innerHeight + window.scrollY) >=
+      document.documentElement.scrollHeight - 2;
+    if (atBottom) current = items[items.length - 1];
+
+    setActive(current);
+  };
+
+  // resume the spy once scrolling has stopped
+  const unlockSoon = () => {
+    clearTimeout(unlockTimer);
+    unlockTimer = setTimeout(() => {
+      locked = false;
+      spy();
+    }, 200);
+  };
+
+  // clicking a tab: highlight it now and scroll to an exact position
+  wrap.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    const item = a && items.find((it) => it.link === a);
+    if (!item) return;
+    e.preventDefault();
+
+    locked = true;
+    setActive(item);
+    unlockSoon();
+
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const y =
+      item.sec.getBoundingClientRect().top + window.scrollY - barBottom() + 1;
+    window.scrollTo({
+      top: Math.max(0, y),
+      behavior: reduce ? "auto" : "smooth",
+    });
+    history.replaceState(null, "", `${page}#${item.sec.id}`);
+  });
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (locked) unlockSoon();
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(spy);
+      }
+    },
+    { passive: true },
+  );
+  window.addEventListener("resize", spy);
+  spy();
+}
